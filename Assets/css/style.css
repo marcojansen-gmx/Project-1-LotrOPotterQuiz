@@ -1,0 +1,10 @@
+#positionWrapper {
+    background: #000;
+    margin: 20px 20px;
+    height: auto;
+}
+
+p {
+    color: blue;
+    font-size: x-large;
+}
