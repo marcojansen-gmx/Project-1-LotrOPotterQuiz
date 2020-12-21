@@ -4,12 +4,12 @@ $(document).ready(function () {
     // init Function MJ
     init()
     function init(){
-       $("#intro").show()
+       $("#startLOTR").show()
     }
 
     // hide Start Button On Click MJ
     $("#startLOTR").on("click", function(){
-       $("#intro").hide()
+       $("#startLOTR").hide()
     })
     
     // on Click Of Start Button Request LOTR API MJ
@@ -23,7 +23,9 @@ $(document).ready(function () {
             'Authorization': 'Bearer 8dD_KqhUELsw37ZZ8_2t'
             },
             success: function (result) {
-                console.log(JSON.stringify(result));             
+                const resultLOTRAPI = (JSON.stringify(result))
+                console.log(resultLOTRAPI);
+                return resultLOTRAPI;
             },
             error: function (error) {
                 console.log(error);
@@ -38,11 +40,23 @@ $(document).ready(function () {
             url: 'https://hp-api.herokuapp.com/api/characters',
             method: "GET"
         }).then(function(response){  
-            console.log(response)
+            const resultHarryAPI = (JSON.stringify(response));
+            console.log(resultHarryAPI);
+            return resultHarryAPI;
         });
 
     });
+
+    // random API Selector MJ
+    function selectRandomAPIResult(){
+        let selectorAPI = Math.round(Math.random());
+        console.log(selectorAPI);
+        let arrayAPIChoice = ["resultLOTRAPI","resultHarryAPI"];
+        let choosenAPI = arrayAPIChoice[selectorAPI];
+        console.log(choosenAPI);
+        return(choosenAPI);
+    };
+
 });
-    // // functionToRequestResponseFromHarryPotterURL
-    
+   
     
