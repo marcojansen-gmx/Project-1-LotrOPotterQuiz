@@ -1,3 +1,7 @@
+// Create Element to be grabbed for Timer Display
+const timerDisplay = document.querySelector('.timer');
+let timer;
+
 // document Ready Wrapper MJ
 $(document).ready(function () {
     
@@ -31,6 +35,8 @@ $(document).ready(function () {
                 console.log(error);
             }
         });
+        if (timer) clearInterval(timer);
+        timer = startTimer();
     });
 
     // on Click Of Start Button Request Harry Potter API MJ
@@ -59,4 +65,29 @@ $(document).ready(function () {
 
 });
    
-    
+// Start Timer on Click Code
+const startTimer = function () {
+    const tick = function() {
+
+        const min = String(Math.trunc(time / 60)).padStart(2, 0);
+        const sec = String(time % 60).padStart(2, 0);
+        // with each call print the time remaining to the User Interface
+        timerDisplay.textContent = `${min}:${sec}`;     
+        // When Timer reaches zero end game, show user score and high score log
+        if (time === 0) {
+            clearInterval(timer);
+            console.log("Game Over");
+            console.log("Your Score will be displayed");
+        }
+
+        // Decrease timer by 1 second for each call 
+        time--;
+    }
+    // When Btn is clicked begin timer at 30 seconds (can be modified)
+    let time = 5;
+    // Call the timer every second
+    tick();
+    const timer = setInterval(tick, 1000);
+    return timer;
+}
+
