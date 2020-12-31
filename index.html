@@ -1,3 +1,4 @@
+  
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,21 +15,25 @@
     <div id="positionWrapper" ><!-- Start Main container -->
    
         <div> <!-- Start Quiz conatiner -->
-            <div> <!-- Start Harry Potter -->
-                <p>Harry is going to be here</p>
-            </div>
-            <div> <!-- Start LOTR conatiner -->
-                <p>LOTR is going to be here</p>
-            </div>
-            <div class="timer"> <!-- Start LOTR conatiner -->
-                <p>Timer is going to be here</p>
-            </div>
             <section id="intro"><!-- Start Info and button conatiner -->
                 <h1>Potter or LOTR Quiz</h1>
                 <p>This is a quiz! You will get a character name displayed.</br>
-                   Choose if this character is in Lord of the Rings or Harry Potter
+                   Which story does the char belong to?
                 </p>
                 <button id="startButton">Start Quiz</button>
+            </section>
+            <div class="timer"> <!-- Start LOTR conatiner -->
+                <p>Timer is going to be here</p>
+            </div>
+            <section id="quizContainer">
+                <p id="title">LOTR or Potter Quiz</p>
+                <div id="question"></div><br>                
+                <!-- Buttons placeholder for answers-->
+                <button id="buttonLOTR" >Lord of the Rings</button>
+                <button id="buttonHP">Harry Potter</button>
+                <div id="scoreIndicator">
+                    <p>&nbsp;</p>
+                </div>
             </section>
         </div>
 
