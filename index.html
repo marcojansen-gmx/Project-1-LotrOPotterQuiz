@@ -5,38 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="/Assets/css/style.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="Assest/css/style.css">
 
- 
     <title>Potter or LOTR Quiz</title>
 </head>
 <body>
-    <div id="positionWrapper"><!-- Start Main container -->
+    <div class="container" id="positionWrapper"><!-- Start Main container -->
    
-        <div> <!-- Start Quiz conatiner -->
-            <div> <!-- Start Harry Potter -->
-                <p>Harry is going to be here</p>
+        <div class="row"> <!-- Start Quiz conatiner -->
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <span><img src="Assets/pic/Harry_Potter_main_1228x275.jpg" class="responsive-img" alt="Harry Potter main picture">
+                        <h1>Potter</h1></span>
+                    </div>   
+                      
+                    
+                </div>
+                <div class="row">
+                    <h1>OR</h1>  
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                        <span><img src="Assets/pic/lord_of_the_rings_main_1228x275.jpg" class="responsive-img Lotrimg" alt="Harry Potter main picture">
+                        <h1>LOTR</h1></span>
+                    </div>   
+                  </div>
+                  <div class="row" id="intro"> <!-- Start Info and button conatiner -->
+                    <div class="col">
+                        <p>
+                            This is a quiz! You will get a character name displayed.<br />
+                            Which story does the character belong to?
+                        </p>
+                        <button class="waves-effect btn" id="startButton">Start Quiz</button>
+                    </div>
+                  </div>
+            </div>      
             </div>
-            <h1>Potter or LOTR Quiz</h1>
-            <div> <!-- Start LOTR conatiner -->
-                <p>LOTR is going to be here</p>
+            
+            
+            <div class="timer"> <!-- Start LOTR conatiner -->
+                <p>Timer is going to be here</p>
             </div>
-            <section id="intro"><!-- Start Info and button conatiner -->
+            <section id="quizContainer">
+                <p id="title">LOTR or Potter Quiz</p>
+                <div id="question"></div><br>                
+                <!-- Buttons placeholder for answers-->
+                <button id="buttonHP" class="rounded"></button>
+                <button id="buttonLOTR"></button>
                 
-                <p>This is a quiz! You will get a character name displayed.</br>
-                   Choose if this character is in Lord of the Rings or Harry Potter
-                </p>
-                <button>Start Quiz</button>
+                <div id="scoreIndicator">
+                    <p>&nbsp;</p>
+                </div>
             </section>
         </div>
-
-    </div>
 
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <!-- <script src="Assest/js/app.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="Assets/js/app.js"></script>
 
 </body>
 </html>
