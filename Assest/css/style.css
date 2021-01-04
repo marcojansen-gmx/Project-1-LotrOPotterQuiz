@@ -3,20 +3,18 @@ body {
 
 }
 
+
 #positionWrapper {
- recovered-branch-add_assets
     background-color: #00423875;
     border: #342F2F ;
-   
-
+    
 }
 
 p {
     color: blue;
- recovered-branch-add_assets
 }
 
-h4 {
+h1 {
     color: aliceblue;
     text-align: center;
    
@@ -26,10 +24,13 @@ h4 {
     background-image: ;
 }
 
+.Lotrimg {
+    width: 100%;
+}
 
 /* Start Buton Quiz */
 #startButton {
-    background-color: teal;
+    background-color: black;
     border-radius: 5px;
 }
 
