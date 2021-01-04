@@ -1,42 +1,82 @@
+  
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="/Assets/css/style.css">
-
- 
+    <link rel="stylesheet" href="Assets/css/style.css">
+   
     <title>Potter or LOTR Quiz</title>
 </head>
 <body>
-    <div id="positionWrapper"><!-- Start Main container -->
-   
-        <div> <!-- Start Quiz conatiner -->
-            <div> <!-- Start Harry Potter -->
-                <p>Harry is going to be here</p>
+
+    <div class="container" id="positionWrapper"><!-- Start Main container -->
+    <!-- start Navbar -->
+        <nav>
+            <div class="nav-wrapper cyan darken-4">
+            <a href="index.html" class="brand-logo">Potter or LOTR Quiz</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="HP.html">Who is Harry Potter?</a></li>
+                <li><a href="LOTR.html">What is LOTR?</a></li>
+                <li><a href="Highscores.html">Highscores</a></li>
+            </ul>
             </div>
-            <h1>Potter or LOTR Quiz</h1>
-            <div> <!-- Start LOTR conatiner -->
-                <p>LOTR is going to be here</p>
+        </nav>
+    <!-- End Navbar -->
+
+        <!-- Start Quiz conatiner -->
+        <div class="row my-3"> 
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <img src="Assets/pic/Harry_Potter_main_1228x275.jpg" class="responsive-img" alt="Harry Potter main picture">
+                    </div>     
+                    
+                </div>
+                <div class="row">
+                    <h4>OR</h4>  
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                        <img src="Assets/pic/lord_of_the_rings_main_1228x275.jpg" class="responsive-img" alt="Harry Potter main picture">
+                        
+                    </div>   
+                  </div>
+                  <div class="row" id="intro"> <!-- Start Info and button conatiner -->
+                    <div class="col">
+                        <p>
+                            This is a quiz! You will get a character name displayed.<br />
+                            Which story does the character belong to?
+                        </p>
+                        <button class="waves-effect btn pulse" id="startButton">Start Quiz</button>
+                    </div>
+                  </div>
+            </div>      
             </div>
-            <section id="intro"><!-- Start Info and button conatiner -->
+            
+            <div class="timer"> <!-- Start LOTR conatiner -->
+                <p>Timer is going to be here</p>
+            </div>
+            <section id="quizContainer">
+                <p id="title">LOTR or Potter Quiz</p>
+                <div id="question"></div><br>    
+
+                <!-- Buttons placeholder for answers-->
+                <button id="buttonHP" class="pulse"></button>
+                <button id="buttonLOTR" class="pulse"></button>
                 
-                <p>This is a quiz! You will get a character name displayed.</br>
-                   Choose if this character is in Lord of the Rings or Harry Potter
-                </p>
-                <button>Start Quiz</button>
+                <div id="scoreIndicator">
+                    <p>&nbsp;</p>
+                </div>
             </section>
         </div>
 
-    </div>
-
-
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <!-- <script src="Assest/js/app.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="Assets/js/app.js"></script>
 
 </body>
 </html>
