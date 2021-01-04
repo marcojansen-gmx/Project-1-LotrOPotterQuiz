@@ -81,7 +81,13 @@ let currentMultiplier;
 
 // LOTR button
 
-// $("#startButton").on("click", function(){
+$("#buttonHP").on("click", function(){
+};
+
+$("#buttonLOTR").on("click", function(){
+};
+
+
 
 // Calculate score
 function scoreCalc(isAnswerEval){
