@@ -7,6 +7,8 @@ let HPCharacters;
 let LOTRCharacters;
 let choosenAPI;
 let randomArrayNo;
+let currentScore;
+let currentMultiplier;
     
     // init Function MJ
     init()
@@ -49,25 +51,6 @@ let randomArrayNo;
                 startQuiz(LOTRCharacters,HPCharacters);       
         }); 
     });
-    
-
-        // $.ajax({
-        //     url: 'https://the-one-api.dev/v2/character',
-        //     type: 'GET',
-        //     contentType: 'application/json',
-        //     headers: {
-        //     'Authorization': 'Bearer 8dD_KqhUELsw37ZZ8_2t'
-        //     },
-        //     success: function (result) {
-        //         const resultLOTRAPI = (JSON.stringify(result));
-        //         // console.log(resultLOTRAPI);
-        //         LOTRCharacters = result.docs;
-        //         console.log("LOTRArray:" + Array.isArray(LOTRCharacters));
-        //     },
-        //     error: function (error) {
-        //         console.log(error);
-        //     }
-        // });
 
         // random API Selector MJ
         function selectRandomAPIResult(){
@@ -79,25 +62,54 @@ let randomArrayNo;
 
         function startQuiz(LOTRCharacters,HPCharacters){
         selectRandomAPIResult();
-        if (choosenAPI === "resultLOTRAPI") {
-            console.log(LOTRCharacters);
-            randomArrayNo = Math.floor(Math.random() * LOTRCharacters.length);
-            console.log(randomArrayNo, LOTRCharacters[randomArrayNo].name);
-            $("#question").text(`From which book is this char? Name: ${LOTRCharacters[randomArrayNo].name}`);
-            $("#quizContainer").attr("data-answer", "buttonLOTR");
+            if (choosenAPI === "resultLOTRAPI") {
+                console.log(LOTRCharacters);
+                randomArrayNo = Math.floor(Math.random() * LOTRCharacters.length);
+                console.log(randomArrayNo, LOTRCharacters[randomArrayNo].name);
+                $("#question").text(`From which book is this char? Name: ${LOTRCharacters[randomArrayNo].name}`);
+                $("#quizContainer").attr("data-answer", "buttonLOTR");
+        }
+            else{
+                console.log(HPCharacters);
+                randomHPAPIChar = Math.floor(Math.random() * HPCharacters.length);
+                console.log(randomHPAPIChar, HPCharacters[randomHPAPIChar]);
+                $("#question").text(`From which book is this char? Name: ${HPCharacters[randomHPAPIChar].name}`);
+                $("#quizContainer").attr("data-answer", "buttonHP");
     }
-        else{
-            console.log(HPCharacters);
-            randomHPAPIChar = Math.floor(Math.random() * HPCharacters.length);
-            console.log(randomHPAPIChar, HPCharacters[randomHPAPIChar]);
-            $("#question").text(`From which book is this char? Name: ${HPCharacters[randomHPAPIChar].name}`);
-            $("#quizContainer").attr("data-answer", "buttonHP");
-    }
-
-    }
-
+}
 });
-   
+
+// LOTR button
+
+// $("#startButton").on("click", function(){
+
+// Calculate score
+function scoreCalc(isAnswerEval){
+    currentScore =1;
+    currentMultiplier=2;
+    if (isAnswerEval) {
+        if (currentScore==undefined) {
+            currentMultiplier=2;
+            currentScore=1;
+            console.log("A:"+currentMultiplier);
+            console.log("B:"+currentScore);
+        } else {
+            currentMultiplier=(currentMultiplier+1);
+            currentScore=(currentScore*currentMultiplier);
+            console.log("C:"+currentMultiplier);
+            console.log("D:"+currentScore);
+        }
+    }
+    else {
+        currentMultiplier=2;
+        currentScore=(currentScore*currentMultiplier);
+        console.log("E:"+currentMultiplier);
+        console.log("F:"+currentScore);
+    }   
+};
+
+
+
 // Start Timer on Click Code
 const startTimer = function () {
     const tick = function() {
