@@ -79,26 +79,32 @@ let currentMultiplier;
 }
 });
 
-scoreCalc(true);
+// LOTR button
+
+// $("#startButton").on("click", function(){
 
 // Calculate score
-function scoreCalc(answerEval){
-    currentScore;
-    currentMultiplier;
-    if (true === answerEval && currentScore==undefined){
-        currentMultiplier=1;
-        currentScore=1;
-        console.log(currentMultiplier, currentScore);
+function scoreCalc(isAnswerEval){
+    currentScore =1;
+    currentMultiplier=2;
+    if (isAnswerEval) {
+        if (currentScore==undefined) {
+            currentMultiplier=2;
+            currentScore=1;
+            console.log("A:"+currentMultiplier);
+            console.log("B:"+currentScore);
+        } else {
+            currentMultiplier=(currentMultiplier+1);
+            currentScore=(currentScore*currentMultiplier);
+            console.log("C:"+currentMultiplier);
+            console.log("D:"+currentScore);
+        }
     }
-    if (true === answerEval && (typeof answerEval !== "undefined")){
-        currentMultiplier=(currentMultiplier*2);
-        currentScore=(currentScore*currentMultiplier);
-        console.log(currentMultiplier, currentScore);
-    }
-    else{
+    else {
         currentMultiplier=2;
         currentScore=(currentScore*currentMultiplier);
-        console.log(currentMultiplier, currentScore);
+        console.log("E:"+currentMultiplier);
+        console.log("F:"+currentScore);
     }   
 };
 
