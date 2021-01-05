@@ -56,7 +56,18 @@ a {
 
 /* Start Button Quiz */
 .timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    color: #2A4442;
+    font-size: 20px;
+}
 
+.quiz-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
