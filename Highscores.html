@@ -6,34 +6,61 @@
 
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="styles" src="Assest/css/style.css">
-
+    <link rel="stylesheet" href="Assets/css/style.css">
+    <!-- Title of project-->  
     <title>Potter or LOTR Quiz</title>
 </head>
 <body>
+     <!-- Start Main container -->
+  <div class="container" id="positionWrapper" >
     <!-- start Navbar -->
     <nav>
-        <div class="nav-wrapper">
-          <a href="index.html" class="brand-logo">Potter or LOTR Quiz</a>
+        <div class="nav-wrapper cyan darken-4">
+          <a href="index.html"><img src="Assets/pic/Potter_Lotr_logo.svg" class="logo" alt="Harry Potter vs The Lord of the Ring"></a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="HP.html">Who is Harry Potter?</a></li>
             <li><a href="LOTR.html">What is LOTR?</a></li>
-            <li><a href="Highscores.html">Highscores</a></li>
+            <li class="active"><a href="Highscores.html">Highscores</a></li>
           </ul>
         </div>
       </nav>
-    <div id="positionWrapper" ><!-- Start Main container -->
    <!-- End Navbar -->
-   
-    <!-- start Highscore section -->
-    <section id="highScores" class="hide">
-        <h1>High Scores</h1>
-        <div>
 
+   <!-- Start Quiz conatiner -->
+   <div class="row">
+     <div class="col">
+       <h1>
+        HighScores
+       </h1>
+        <!-- start Highscore section -->
+        <div class="row">
+          <div class="col hide" id="highScores">
+            <div>
+              Here you go
+            </div>
+            <button id="reset">Go Back</button> <button id="clearScores">Clear Highscores</button>
+          </div>
         </div>
-        <button id="reset">Go Back</button> <button id="clearScores">Clear Highscores</button>
-    </section>
     <!-- end Highscore section -->
+       
+     </div>
+   </div>
+   
+    <!-- Footer -->
+   <footer class="center cyan-text">
+    <div class="footer-copyright cyan darken-4">
+      <div class="container" id="footer">
+      <span> © 2014 Copyright Text</span>
+      <br>
+      <span> POTTER or LOTR Quiz 
+       <link rel="stylesheet" type="text/css" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+       Made with <i class="icon ion-heart"></i> By
+       <a href="https://github.com/marcojansen-gmx/LOTR-or-Potter-Quiz" target="blank"></a>
+         Marco, Adrian, Abby & Nadja</a>
+         </span>
+      </div>
+    </div>
+   </footer>
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
