@@ -3,7 +3,7 @@ body {
 
 }
 
-Sure.logo {
+.logo {
     margin: 10px;
     height: 50px;
 }
@@ -26,24 +26,39 @@ h4 {
     text-align: center;  
 }
 
+a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #135276;
+}
+
 #intro p{
     font-size: 16px;
     color: rgb(26, 24, 49), 24, 49);
     text-align: right;
     margin-right: 10px;
-
 }
 
 #intro {
     margin-right: 10px;
 }
 
-/* Start Buton Quiz */
+/* Start Button Quiz */
 #startButton {
     background-color: #232324;
     width: 150px;
     border-radius: 5px;
 }
+
+.hide {
+    display: none;
+}
+
+/* Start Button Quiz */
+.timer {
+
+}
+
 
 /* Style for the buttons Potter and LOTR */
 #buttonHP {
@@ -59,6 +74,12 @@ h4 {
     width: 150px;
     border-radius: 5px;
 
+}
+
+/* Submit Button for the name/higscore */
+#submit-btn {
+    background-color: #232324;
+    border-radius: 5px;
 }
 
 /* Footer, additional to the set css */
