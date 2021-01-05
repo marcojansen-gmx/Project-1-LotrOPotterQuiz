@@ -8,8 +8,8 @@
         let LOTRCharacters;
         let choosenAPI;
         let randomArrayNo;
-        let currentScore;
-        let currentMultiplier;
+        let currentScore = 0;
+        let currentMultiplier = 2;
         let isAnswerHP;
         let isAnswerLOTR;
 
@@ -136,12 +136,12 @@
         function scoreCalc(isAnswerEval){
             // set initial variable values
             currentScore;
-            currentMultiplier=2;
+            currentMultiplier;
             // with score still empty set initial current score and multiplier
             if (isAnswerEval) {
-                if (currentScore==undefined) {
+                if (currentScore==0) {
                     currentMultiplier=2;
-                    currentScore=1;
+                    currentScore += 1;
                     console.log("A:"+currentMultiplier);
                     console.log("B:"+currentScore);
                 }   
@@ -155,14 +155,14 @@
         }
                 else {
                 //added if statement for incorrect first answer under a evalualtion that is false
-                    if (currentScore==undefined) {
+                    if (currentScore==0) {
                         currentMultiplier=2;
-                        currentScore=0;
+                        currentScore = 0;
                         console.log("E:"+currentMultiplier);
                         console.log("F:"+currentScore);
                 }               else {
                             currentMultiplier=2;
-                            currentScore=(currentScore*currentMultiplier);
+                            // currentScore=(currentScore*currentMultiplier);
                             console.log("G:"+currentMultiplier);
                             console.log("H:"+currentScore);
                     }
@@ -183,13 +183,12 @@
                         console.log("Your Score will be displayed");
                        renderEndGame();
                 }
-            
                 // Decrease timer by 1 second for each call 
                 time--;
             }
     
             // When Btn is clicked begin timer at 30 seconds (can be modified)
-            let time = 120;
+            let time = 10;
             // Call the timer every second
             tick();
             const timer = setInterval(tick, 1000);
@@ -220,7 +219,7 @@
             endGameMessageElement.innerText = "Game is Over!";
             // Let user know what their score is
             const userScoreMessageElement = document.createElement('h4');
-            userScoreMessageElement.innerHTML = "Your final score is: ";
+            userScoreMessageElement.innerHTML = "Your final score is: " +currentScore;
             endGameMessageElement.append(userScoreMessageElement);
             // Request user input 
             const initialMessageElement = document.createElement('div');
