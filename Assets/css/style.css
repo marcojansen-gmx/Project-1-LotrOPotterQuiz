@@ -1,15 +1,58 @@
+body {
+    background: #0274837c;
+
+}
+
 #positionWrapper {
-    background-color: #000;
-    margin: 20px 20px;
-    height: auto;
+ recovered-branch-add_assets
+    background-color: #00423875;
+    border: #342F2F ;
+   
+
 }
 
 p {
     color: blue;
-    font-size: x-large;
+ recovered-branch-add_assets
 }
 
-h1 {
-    color: red;
+h4 {
+    color: aliceblue;
+    text-align: center;
+   
 }
+
+#harryPotter {
+    background-image: ;
+}
+
+
+/* Start Buton Quiz */
+#startButton {
+    background-color: teal;
+    border-radius: 5px;
+}
+
+/* Images/Style for the buttons Potter and LOTR */
+#buttonHP {
+    background-image: url('/Assets/pic/Harry_Potter_button.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: black;
+    height: 40px;
+    width: 95px;
+    border-radius: 5px;
+}
+
+#buttonLOTR {
+    background-image: url('/Assets/pic/Lotr_button.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: black;
+    height: 40px;
+    width: 95px;
+    border-radius: 5px;
+
+}
+
 
