@@ -2,6 +2,7 @@
 
         // Create Element to be grabbed for Timer Display
         const timerDisplay = document.querySelector(".timer");
+        const loader = document.querySelector(".loader-container");
         let timer;
         let HPCharacters;
         let LOTRCharacters;
@@ -12,6 +13,13 @@
         let isAnswerHP;
         let isAnswerLOTR;
 
+        function showLoader() {
+            loader.classList.remove("hide");
+        }
+
+        function hideLoader() {
+            loader.classList.add("hide");
+        }
             // init Function MJ
             init()
             function init(){
@@ -21,8 +29,11 @@
         };
 
             // on click of start button run API requests
-            $("#startButton").on("click", function(){
-                $("#intro").hide()    
+            $("#startButton").on("click", function(event){
+                event.preventDefault();
+                $("#cover-start").hide();
+                $("#intro").hide()   
+                showLoader()
                 $.ajax({
                 url: 'https://the-one-api.dev/v2/character',
                 method: "GET",
@@ -41,6 +52,7 @@
                 method: "GET"
                 // handle HP API result
                 }).then(function(response){ 
+
                     // let resultHarryAPI = (JSON.stringify(response));
                     HPCharacters = response;
                     // console.log(resultHarryAPI);  
@@ -182,46 +194,44 @@
             tick();
             const timer = setInterval(tick, 1000);
             return timer;
-    };
+            // creating container element to add end of game elements
+            let containerElement = document.getElementById("quizContainer");
             
+            function createRow(rowTotal, content) {
+                
+                for (let i = 0; i < rowTotal; i++){
+                    const rowElement = document.createElement("div");
+                    rowElement.setAttribute("class", "row")
+                    const colElement = document.createElement("div");
+                    colElement.setAttribute("class", "col");
+                    colElement.append(content);
+                    rowElement.append(colElement);
+                    containerElement.append(rowElement);
+                    
+                }
+            }
+            function renderEndGame() {
+                containerElement.innerHTML = "";
+                // Game is Over Notification
+                const endGameMessageElement = document.createElement('div');
+                // endGameMessageElement.setAttribute('class', 'h4');
+                endGameMessageElement.innerText = "Game is Over!";
+                // Let user know what their score is
+                const userScoreMessageElement = document.createElement('div');
+                userScoreMessageElement.innerHTML = "Your final score is: ";
+                endGameMessageElement.append(userScoreMessageElement);
+                // Request user input 
+                const initialMessageElement = document.createElement('div');
+                initialMessageElement.setAttribute('class', 'myClassBlue');
+                initialMessageElement.innerHTML = "Enter your name here: <input type='text' id='initial-input'></input>"
+                endGameMessageElement.append(initialMessageElement);
+                // Submit score button that will also be used to creat event Listener to generate highscores record
+                const addHighScoreBtnElement = document.createElement('button');
+                addHighScoreBtnElement.setAttribute('class','btn btn-dark');
+                addHighScoreBtnElement.setAttribute('id', 'submit-btn');
+                addHighScoreBtnElement.innerText = "Submit Score";
+                endGameMessageElement.append(addHighScoreBtnElement);
+                createRow(1, endGameMessageElement);
+            }
+        };    
 });
-
-// creating container element to add end of game elements
-    let containerElement = document.getElementById("quizContainer");
-
-    function createRow(rowTotal, content) {
-    
-        for (let i = 0; i < rowTotal; i++){
-            const rowElement = document.createElement("div");
-            rowElement.setAttribute("class", "row")
-            const colElement = document.createElement("div");
-            colElement.setAttribute("class", "col");
-            colElement.append(content);
-            rowElement.append(colElement);
-            containerElement.append(rowElement);
-            
-        }
-    }
-    function renderEndGame() {
-        containerElement.innerHTML = "";
-        // Game is Over Notification
-        const endGameMessageElement = document.createElement('div');
-        // endGameMessageElement.setAttribute('class', 'h4');
-        endGameMessageElement.innerText = "Game is Over!";
-        // Let user know what their score is
-        const userScoreMessageElement = document.createElement('div');
-        userScoreMessageElement.innerHTML = "Your final score is: ";
-        endGameMessageElement.append(userScoreMessageElement);
-        // Request user input 
-        const initialMessageElement = document.createElement('div');
-        initialMessageElement.setAttribute('class', 'myClassBlue');
-        initialMessageElement.innerHTML = "Enter your name here: <input type='text' id='initial-input'></input>"
-        endGameMessageElement.append(initialMessageElement);
-        // Submit score button that will also be used to creat event Listener to generate highscores record
-        const addHighScoreBtnElement = document.createElement('button');
-        addHighScoreBtnElement.setAttribute('class','btn btn-dark');
-        addHighScoreBtnElement.setAttribute('id', 'submit-btn');
-        addHighScoreBtnElement.innerText = "Submit Score";
-        endGameMessageElement.append(addHighScoreBtnElement);
-        createRow(1, endGameMessageElement);
-    }
