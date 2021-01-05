@@ -9,6 +9,8 @@ let choosenAPI;
 let randomArrayNo;
 let currentScore;
 let currentMultiplier;
+let isAnswerHP;
+let isAnswerLOTR;
     
     // init Function MJ
     init()
@@ -16,7 +18,6 @@ let currentMultiplier;
        $("#intro").show()
        $(".timer").hide()
        $("#quizContainer").hide()
-
     }
 
     $("#startButton").on("click", function(){
@@ -81,16 +82,44 @@ let currentMultiplier;
 
 // LOTR button
 
-// $("#startButton").on("click", function(){
+$("#buttonHP").on("click", function(){
+    let answerAttribute=$("#quizContainer").attr("data-answer");
+    console.log(answerAttribute);
+    isAnswerEval=("buttonHP"===answerAttribute);
+    if (isAnswerEval){
+        console.log("correct");
+        scoreCalc(isAnswerEval);
+    }
+    else{
+        console.log("incorrect");
+        scoreCalc(isAnswerEval);
+    }
+
+});
+
+$("#buttonLOTR").on("click", function(){
+    let answerAttribute=$("#quizContainer").attr("data-answer");
+    console.log(answerAttribute);
+    isAnswerEval=("buttonLOTR"===answerAttribute);
+    if (isAnswerEval){
+        console.log("correct");
+        scoreCalc(isAnswerEval);
+
+    }
+    else{
+        console.log("incorrect");
+        scoreCalc(isAnswerEval);
+    }
+});
+
 
 // Calculate score
 function scoreCalc(isAnswerEval){
-    currentScore =1;
-    currentMultiplier=2;
+
     if (isAnswerEval) {
         if (currentScore==undefined) {
-            currentMultiplier=2;
             currentScore=1;
+            currentMultiplier=2;
             console.log("A:"+currentMultiplier);
             console.log("B:"+currentScore);
         } else {
