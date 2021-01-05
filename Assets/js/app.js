@@ -1,4 +1,5 @@
 $('document').ready(function(){
+
     // Create Element to be grabbed for Timer Display
     const timerDisplay = document.querySelector(".timer");
     let timer;
@@ -16,6 +17,7 @@ $('document').ready(function(){
            $("#intro").show()
            $(".timer").hide()
            $("#quizContainer").hide()
+
         }
         $("#startButton").on("click", function(){
           $("#intro").hide()    
@@ -73,18 +75,60 @@ $('document').ready(function(){
                     $("#quizContainer").attr("data-answer", "buttonHP");
         }
     }
-    });
-    // LOTR button
-    $("#buttonHP").on("click", function(){
-        let answerAttribute=$("#quizContainer").attr("data-answer");
-        console.log(answerAttribute);
-        isAnswerLOTR=("buttonHP"===answerAttribute);
-        if (isAnswerLOTR){
-            console.log("correct");
+
+}
+});
+
+// LOTR button
+
+$("#buttonHP").on("click", function(){
+    let answerAttribute=$("#quizContainer").attr("data-answer");
+    console.log(answerAttribute);
+    isAnswerEval=("buttonHP"===answerAttribute);
+    if (isAnswerEval){
+        console.log("correct");
+        scoreCalc(isAnswerEval);
+    }
+    else{
+        console.log("incorrect");
+        scoreCalc(isAnswerEval);
+    }
+
+});
+
+$("#buttonLOTR").on("click", function(){
+    let answerAttribute=$("#quizContainer").attr("data-answer");
+    console.log(answerAttribute);
+    isAnswerEval=("buttonLOTR"===answerAttribute);
+    if (isAnswerEval){
+        console.log("correct");
+        scoreCalc(isAnswerEval);
+
+    }
+    else{
+        console.log("incorrect");
+        scoreCalc(isAnswerEval);
+    }
+});
+
+
+// Calculate score
+function scoreCalc(isAnswerEval){
+
+    if (isAnswerEval) {
+        if (currentScore==undefined) {
+            currentScore=1;
+            currentMultiplier=2;
+            console.log("A:"+currentMultiplier);
+            console.log("B:"+currentScore);
+        } else {
+            currentMultiplier=(currentMultiplier+1);
+            currentScore=(currentScore*currentMultiplier);
+            console.log("C:"+currentMultiplier);
+            console.log("D:"+currentScore);
+
         }
-        else{console.log("incorrect");
-        }
-    });
+
     $("#buttonLOTR").on("click", function(){
         let answerAttribute=$("#quizContainer").attr("data-answer");
         console.log(answerAttribute);
