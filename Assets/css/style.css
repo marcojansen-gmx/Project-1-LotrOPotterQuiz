@@ -43,12 +43,22 @@ a {
     margin-right: 10px;
 }
 
-/* Start Buton Quiz */
+/* Start Button Quiz */
 #startButton {
     background-color: #232324;
     width: 150px;
     border-radius: 5px;
 }
+
+.hide {
+    display: none;
+}
+
+/* Start Button Quiz */
+.timer {
+
+}
+
 
 /* Style for the buttons Potter and LOTR */
 #buttonHP {
@@ -64,6 +74,12 @@ a {
     width: 150px;
     border-radius: 5px;
 
+}
+
+/* Submit Button for the name/higscore */
+#submit-btn {
+    background-color: #232324;
+    border-radius: 5px;
 }
 
 /* Footer, additional to the set css */
