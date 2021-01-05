@@ -1,4 +1,3 @@
-
     $('document').ready(function(){
 
         // Create Element to be grabbed for Timer Display
@@ -180,7 +179,7 @@
                         clearInterval(timer);
                         console.log("Game Over");
                         console.log("Your Score will be displayed");
-                        renderEndGame();
+                       renderEndGame();
                 }
             
                 // Decrease timer by 1 second for each call 
