@@ -7,8 +7,8 @@ $('document').ready(function () {
     let LOTRCharacters;
     let choosenAPI;
     let randomArrayNo;
-    let currentScore;
-    let currentMultiplier;
+    let currentScore = 0;
+    let currentMultiplier = 2;
     let isAnswerHP;
     let isAnswerLOTR;
     let quizCounter = 0;
@@ -109,7 +109,6 @@ $('document').ready(function () {
             startQuiz(LOTRCharacters, HPCharacters)
         }
 
-
     }
 
     // HP button evaluation on click
@@ -119,42 +118,10 @@ $('document').ready(function () {
     // LOTR button evaluation on on click
     $("#buttonLOTR").on("click", checkAnswer)
 
-    // Calculate score
-    function scoreCalc(isAnswerEval) {
-        // set initial variable values
-        currentScore;
-        currentMultiplier = 2;
-        // with score still empty set initial current score and multiplier
-        if (isAnswerEval) {
-            if (currentScore == undefined) {
-                currentMultiplier = 2;
-                currentScore = 1;
-                console.log("A:" + currentMultiplier);
-                console.log("B:" + currentScore);
-            }
+           let randomArrayNo;
+        let currentScore = 0;
+        let currentMultiplier = 2;
 
-            // with score already set add +1 to multiplier and mutliply with current score
-            else {
-                currentMultiplier = (currentMultiplier + 1);
-                currentScore = (currentScore * currentMultiplier);
-                console.log("C:" + currentMultiplier);
-                console.log("D:" + currentScore);
-            }
-        }
-        else {
-            //added if statement for incorrect first answer under a evalualtion that is false
-            if (currentScore == undefined) {
-                currentMultiplier = 2;
-                currentScore = 0;
-                console.log("E:" + currentMultiplier);
-                console.log("F:" + currentScore);
-            } else {
-                currentMultiplier = 2;
-                currentScore = (currentScore * currentMultiplier);
-                console.log("G:" + currentMultiplier);
-                console.log("H:" + currentScore);
-            }
-        }
     };
 
     // Start Timer on Click Code
@@ -174,6 +141,7 @@ $('document').ready(function () {
 
             // Decrease timer by 1 second for each call 
             time--;
+
         }
 
         // When Btn is clicked begin timer at 30 seconds (can be modified)
@@ -184,7 +152,7 @@ $('document').ready(function () {
         return timer;
     };
 
-});
+
 
 // creating container element to add end of game elements
 let containerElement = document.getElementById("quizContainer");
@@ -202,27 +170,28 @@ function createRow(rowTotal, content) {
 
     }
 }
-function renderEndGame() {
-    containerElement.innerHTML = "";
-    // Game is Over Notification
-    const endGameMessageElement = document.createElement('div');
-    // endGameMessageElement.setAttribute('class', 'h4');
-    endGameMessageElement.innerText = "Game is Over!";
-    // Let user know what their score is
-    const userScoreMessageElement = document.createElement('div');
-    userScoreMessageElement.innerHTML = "Your final score is: ";
-    endGameMessageElement.append(userScoreMessageElement);
-    // Request user input 
-    const initialMessageElement = document.createElement('div');
-    initialMessageElement.setAttribute('class', 'myClassBlue');
-    initialMessageElement.innerHTML = "Enter your name here: <input type='text' id='initial-input'></input>"
-    endGameMessageElement.append(initialMessageElement);
-    // Submit score button that will also be used to creat event Listener to generate highscores record
-    const addHighScoreBtnElement = document.createElement('button');
-    addHighScoreBtnElement.setAttribute('class', 'btn btn-dark');
-    addHighScoreBtnElement.setAttribute('id', 'submit-btn');
-    addHighScoreBtnElement.innerText = "Submit Score";
-    endGameMessageElement.append(addHighScoreBtnElement);
-    createRow(1, endGameMessageElement);
+        function renderEndGame() {
+            containerElement.innerHTML = "";
+            // Game is Over Notification
+            const endGameMessageElement = document.createElement('div');
+            endGameMessageElement.setAttribute('class', 'myClassRed');
+            endGameMessageElement.innerText = "Game is Over!";
+            // Let user know what their score is
+            const userScoreMessageElement = document.createElement('h4');
+            userScoreMessageElement.innerHTML = "Your final score is: " +currentScore;
+            endGameMessageElement.append(userScoreMessageElement);
+            // Request user input 
+            const initialMessageElement = document.createElement('div');
+            initialMessageElement.setAttribute('class', 'myClassBlue');
+            initialMessageElement.innerHTML = "Enter your name here: <input type='text' id='initial-input'></input>"
+            endGameMessageElement.append(initialMessageElement);
+            // Submit score button that will also be used to creat event Listener to generate highscores record
+            const addHighScoreBtnElement = document.createElement('button');
+            addHighScoreBtnElement.setAttribute('class','btn btn-dark');
+            addHighScoreBtnElement.setAttribute('id', 'submit-btn');
+            addHighScoreBtnElement.innerText = "Submit Score";
+            endGameMessageElement.append(addHighScoreBtnElement);
+            createRow(1, endGameMessageElement);
 }
 
+});
