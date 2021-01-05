@@ -3,7 +3,7 @@ body {
 
 }
 
-Sure.logo {
+.logo {
     margin: 10px;
     height: 50px;
 }
@@ -31,7 +31,6 @@ h4 {
     color: rgb(26, 24, 49), 24, 49);
     text-align: right;
     margin-right: 10px;
-
 }
 
 #intro {
