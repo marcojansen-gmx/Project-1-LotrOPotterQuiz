@@ -97,7 +97,7 @@ $('document').ready(function(){
     });
     // Calculate score
     function scoreCalc(isAnswerEval){
-        currentScore =1;
+        currentScore;
         currentMultiplier=2;
         if (isAnswerEval) {
             if (currentScore==undefined) {
@@ -113,10 +113,18 @@ $('document').ready(function(){
             }
         }
         else {
-            currentMultiplier=2;
-            currentScore=(currentScore*currentMultiplier);
-            console.log("E:"+currentMultiplier);
-            console.log("F:"+currentScore);
+            //added if statement for incorrect first answer under a evalualtion that is false
+            if (currentScore==undefined) {
+                currentMultiplier=2;
+                currentScore=0;
+                console.log("E:"+currentMultiplier);
+                console.log("F:"+currentScore);
+            } else {
+                currentMultiplier=2;
+                currentScore=(currentScore*currentMultiplier);
+                console.log("G:"+currentMultiplier);
+                console.log("H:"+currentScore);
+            }
         }   
     };
     // Start Timer on Click Code
