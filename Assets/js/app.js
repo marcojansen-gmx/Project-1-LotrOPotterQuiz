@@ -171,3 +171,26 @@ $('document').ready(function(){
             
         }
     }
+    function renderEndGame() {
+        containerElement.innerHTML = "";
+        // Game is Over Notification
+        const endGameMessageElement = document.createElement('div');
+        endGameMessageElement.setAttribute('class', 'myClassRed');
+        endGameMessageElement.innerText = "Game is Over!";
+        // Let user know what their score is
+        const userScoreMessageElement = document.createElement('h4');
+        userScoreMessageElement.innerHTML = "Your final score is: ";
+        endGameMessageElement.append(userScoreMessageElement);
+        // Request user input 
+        const initialMessageElement = document.createElement('div');
+        initialMessageElement.setAttribute('class', 'myClassBlue');
+        initialMessageElement.innerHTML = "Enter your name here: <input type='text' id='initial-input'></input>"
+        endGameMessageElement.append(initialMessageElement);
+        // Submit score button that will also be used to creat event Listener to generate highscores record
+        const addHighScoreBtnElement = document.createElement('button');
+        addHighScoreBtnElement.setAttribute('class','btn btn-dark');
+        addHighScoreBtnElement.setAttribute('id', 'submit-btn');
+        addHighScoreBtnElement.innerText = "Submit Score";
+        endGameMessageElement.append(addHighScoreBtnElement);
+        createRow(1, endGameMessageElement);
+    }
