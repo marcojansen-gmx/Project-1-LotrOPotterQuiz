@@ -26,6 +26,12 @@ h4 {
     text-align: center;  
 }
 
+a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #135276;
+}
+
 #intro p{
     font-size: 16px;
     color: rgb(26, 24, 49), 24, 49);
