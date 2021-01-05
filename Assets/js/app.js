@@ -2,6 +2,7 @@
 
         // Create Element to be grabbed for Timer Display
         const timerDisplay = document.querySelector(".timer");
+        const loader = document.querySelector(".loader-container");
         let timer;
         let HPCharacters;
         let LOTRCharacters;
@@ -12,6 +13,13 @@
         let isAnswerHP;
         let isAnswerLOTR;
 
+        function showLoader() {
+            loader.classList.remove("hide");
+        }
+
+        function hideLoader() {
+            loader.classList.add("hide");
+        }
             // init Function MJ
             init()
             function init(){
@@ -21,8 +29,11 @@
         };
 
             // on click of start button run API requests
-            $("#startButton").on("click", function(){
-                $("#intro").hide()    
+            $("#startButton").on("click", function(event){
+                event.preventDefault();
+                $("#cover-start").hide();
+                $("#intro").hide()   
+                showLoader()
                 $.ajax({
                 url: 'https://the-one-api.dev/v2/character',
                 method: "GET",
@@ -32,7 +43,7 @@
             }
             // handle LOTR API result
             }).then(function(response){ 
-                let resultLOTRAPI = (JSON.stringify(response));
+                // let resultLOTRAPI = (JSON.stringify(response));
                 LOTRCharacters = response.docs;
                 // console.log(resultLOTRAPI);  
                 // console.log("LOTRArray:" + Array.isArray(LOTRCharacters));   
@@ -41,6 +52,7 @@
                 method: "GET"
                 // handle HP API result
                 }).then(function(response){ 
+                    hideLoader();
                     let resultHarryAPI = (JSON.stringify(response));
                     HPCharacters = response;
                     // console.log(resultHarryAPI);  

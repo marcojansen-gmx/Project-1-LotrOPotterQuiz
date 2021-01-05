@@ -9,6 +9,7 @@
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
    <!-- changed link to style sheet   -->
    <link rel="stylesheet" href="Assets/css/style.css">
+   <link rel="stylesheet" href="Assets/css/loader.css">
 
     <title>Potter or LOTR Quiz</title>
 </head>
@@ -29,7 +30,7 @@
     <!-- End Navbar -->
 
         <!-- Start Quiz conatiner -->
-        <div class="row"> 
+        <div class="row" id="cover-start"> 
             <div class="col">
                 <div class="row">
                     <div class="col">
@@ -59,10 +60,13 @@
                   </div>    
             </div>      
             </div>
+            <!-- Loader -->
+            <div class="loader-container">
+                <div class="lds-ripple"><div></div><div></div></div>
+            </div>
 
             <!-- Start LOTR container -->
             <div class="timer"> 
-
                 <p>Timer is going to be here</p>
             </div>
             <section id="quizContainer">
