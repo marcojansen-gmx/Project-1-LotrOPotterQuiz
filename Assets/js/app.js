@@ -132,6 +132,7 @@ $('document').ready(function () {
                 console.log("A:" + currentMultiplier);
                 console.log("B:" + currentScore);
             }
+
             // with score already set add +1 to multiplier and mutliply with current score
             else {
                 currentMultiplier = (currentMultiplier + 1);
@@ -224,3 +225,4 @@ function renderEndGame() {
     endGameMessageElement.append(addHighScoreBtnElement);
     createRow(1, endGameMessageElement);
 }
+
