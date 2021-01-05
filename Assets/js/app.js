@@ -192,44 +192,45 @@
             tick();
             const timer = setInterval(tick, 1000);
             return timer;
-            // creating container element to add end of game elements
-            let containerElement = document.getElementById("quizContainer");
+        }
+        
+        let containerElement = document.getElementById("quizContainer");
+        
+        function createRow(rowTotal, content) {
             
-            function createRow(rowTotal, content) {
+            for (let i = 0; i < rowTotal; i++){
+                const rowElement = document.createElement("div");
+                rowElement.setAttribute("class", "row")
+                const colElement = document.createElement("div");
+                colElement.setAttribute("class", "col");
+                colElement.append(content);
+                rowElement.append(colElement);
+                containerElement.append(rowElement);
                 
-                for (let i = 0; i < rowTotal; i++){
-                    const rowElement = document.createElement("div");
-                    rowElement.setAttribute("class", "row")
-                    const colElement = document.createElement("div");
-                    colElement.setAttribute("class", "col");
-                    colElement.append(content);
-                    rowElement.append(colElement);
-                    containerElement.append(rowElement);
-                    
-                }
             }
-            function renderEndGame() {
-                containerElement.innerHTML = "";
-                // Game is Over Notification
-                const endGameMessageElement = document.createElement('div');
-                // endGameMessageElement.setAttribute('class', 'h4');
-                endGameMessageElement.innerText = "Game is Over!";
-                // Let user know what their score is
-                const userScoreMessageElement = document.createElement('div');
-                userScoreMessageElement.innerHTML = "Your final score is: ";
-                endGameMessageElement.append(userScoreMessageElement);
-                // Request user input 
-                const initialMessageElement = document.createElement('div');
-                initialMessageElement.setAttribute('class', 'myClassBlue');
-                initialMessageElement.innerHTML = "Enter your name here: <input type='text' id='initial-input'></input>"
-                endGameMessageElement.append(initialMessageElement);
-                // Submit score button that will also be used to creat event Listener to generate highscores record
-                const addHighScoreBtnElement = document.createElement('button');
-                addHighScoreBtnElement.setAttribute('class','btn btn-dark');
-                addHighScoreBtnElement.setAttribute('id', 'submit-btn');
-                addHighScoreBtnElement.innerText = "Submit Score";
-                endGameMessageElement.append(addHighScoreBtnElement);
-                createRow(1, endGameMessageElement);
-            }
-        };    
-});
+        }
+        
+        function renderEndGame() {
+            containerElement.innerHTML = "";
+            // Game is Over Notification
+            const endGameMessageElement = document.createElement('div');
+            endGameMessageElement.setAttribute('class', 'myClassRed');
+            endGameMessageElement.innerText = "Game is Over!";
+            // Let user know what their score is
+            const userScoreMessageElement = document.createElement('h4');
+            userScoreMessageElement.innerHTML = "Your final score is: ";
+            endGameMessageElement.append(userScoreMessageElement);
+            // Request user input 
+            const initialMessageElement = document.createElement('div');
+            initialMessageElement.setAttribute('class', 'myClassBlue');
+            initialMessageElement.innerHTML = "Enter your name here: <input type='text' id='initial-input'></input>"
+            endGameMessageElement.append(initialMessageElement);
+            // Submit score button that will also be used to creat event Listener to generate highscores record
+            const addHighScoreBtnElement = document.createElement('button');
+            addHighScoreBtnElement.setAttribute('class','btn btn-dark');
+            addHighScoreBtnElement.setAttribute('id', 'submit-btn');
+            addHighScoreBtnElement.innerText = "Submit Score";
+            endGameMessageElement.append(addHighScoreBtnElement);
+            createRow(1, endGameMessageElement);
+        }
+    });
