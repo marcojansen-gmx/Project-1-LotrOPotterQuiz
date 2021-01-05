@@ -32,7 +32,7 @@
             }
             // handle LOTR API result
             }).then(function(response){ 
-                let resultLOTRAPI = (JSON.stringify(response));
+                // let resultLOTRAPI = (JSON.stringify(response));
                 LOTRCharacters = response.docs;
                 // console.log(resultLOTRAPI);  
                 // console.log("LOTRArray:" + Array.isArray(LOTRCharacters));   
@@ -41,7 +41,7 @@
                 method: "GET"
                 // handle HP API result
                 }).then(function(response){ 
-                    let resultHarryAPI = (JSON.stringify(response));
+                    // let resultHarryAPI = (JSON.stringify(response));
                     HPCharacters = response;
                     // console.log(resultHarryAPI);  
                     // console.log("HarryArray:" + Array.isArray(HPCharacters));
@@ -56,7 +56,7 @@
 
             });
         });
-
+            
             // random API Selector MJ
             function selectRandomAPIResult(){
             let selectorAPI = Math.round(Math.random());
@@ -65,14 +65,14 @@
             console.log(choosenAPI);
         };
 
-            // function to startquiz
+            // function to startquiz and fill chars into container
             function startQuiz(LOTRCharacters,HPCharacters){
             selectRandomAPIResult();
                 // LOTR random selection
                 if (choosenAPI === "resultLOTRAPI") {
                     // console.log(LOTRCharacters);
                     randomArrayNo = Math.floor(Math.random() * LOTRCharacters.length);
-                    // console.log(randomArrayNo, LOTRCharacters[randomArrayNo].name);
+                    console.log(randomArrayNo, LOTRCharacters[randomArrayNo].name);
                     $("#question").text(`From which book is this char? Name: ${LOTRCharacters[randomArrayNo].name}`);
                     $("#quizContainer").attr("data-answer", "buttonLOTR");
             }
@@ -93,10 +93,12 @@
                     if (isAnswerEval){
                         console.log("correct");
                         scoreCalc(isAnswerEval);
+                        startQuiz(LOTRCharacters,HPCharacters)
                 }
                     else{
                         console.log("incorrect");
                         scoreCalc(isAnswerEval);
+                        startQuiz(LOTRCharacters,HPCharacters)
                 }
 
         });
@@ -109,26 +111,14 @@
                     if (isAnswerEval){
                         console.log("correct");
                         scoreCalc(isAnswerEval);
+                        startQuiz(LOTRCharacters,HPCharacters)
                 }
                     else{
                         console.log("incorrect");
                         scoreCalc(isAnswerEval);
+                        startQuiz(LOTRCharacters,HPCharacters)
                 }
-        });
-   
-            // LOTR button evaluation
-            $("#buttonLOTR").on("click", function(){
-                let answerAttribute=$("#quizContainer").attr("data-answer");
-                console.log(answerAttribute);
-                isAnswerLOTR=("buttonLOTR"===answerAttribute);
-                    if (isAnswerLOTR){
-                        console.log("correct");
-                }
-                    else{
-                        console.log("incorrect");
-                        scoreCalc(isAnswerEval);
-                }
-        });
+        }); 
     
         // Calculate score
         function scoreCalc(isAnswerEval){
@@ -187,7 +177,7 @@
             }
     
             // When Btn is clicked begin timer at 30 seconds (can be modified)
-            let time = 5;
+            let time = 120;
             // Call the timer every second
             tick();
             const timer = setInterval(tick, 1000);
