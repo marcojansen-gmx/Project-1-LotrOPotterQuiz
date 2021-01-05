@@ -194,13 +194,12 @@
             return timer;
     };
             
-});
-
-// creating container element to add end of game elements
-    let containerElement = document.getElementById("quizContainer");
-
-    function createRow(rowTotal, content) {
     
+    // creating container element to add end of game elements
+    let containerElement = document.getElementById("quizContainer");
+    
+    function createRow(rowTotal, content) {
+        
         for (let i = 0; i < rowTotal; i++){
             const rowElement = document.createElement("div");
             rowElement.setAttribute("class", "row")
@@ -235,3 +234,4 @@
         endGameMessageElement.append(addHighScoreBtnElement);
         createRow(1, endGameMessageElement);
     }
+});
