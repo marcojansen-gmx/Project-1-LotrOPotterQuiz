@@ -216,7 +216,7 @@ $('document').ready(function () {
             }
     
             // When Btn is clicked begin timer at 30 seconds (can be modified)
-            let time = 10;
+            let time = 60;
             // Call the timer every second
             tick();
             const timer = setInterval(tick, 1000);
@@ -252,7 +252,7 @@ function createRow(rowTotal, content) {
             // Request user input 
             const initialMessageElement = document.createElement('div');
             initialMessageElement.setAttribute('class', 'myClassBlue');
-            initialMessageElement.innerHTML = "Enter your name here: <input type='text' id='initial-input'></input>"
+            initialMessageElement.innerHTML = "Enter your name here: <input type='text' id='initials'></input>"
             endGameMessageElement.append(initialMessageElement);
             // Submit score button that will also be used to creat event Listener to generate highscores record
             const addHighScoreBtnElement = document.createElement('button');
@@ -260,7 +260,68 @@ function createRow(rowTotal, content) {
             addHighScoreBtnElement.setAttribute('id', 'submit-btn');
             addHighScoreBtnElement.innerText = "Submit Score";
             endGameMessageElement.append(addHighScoreBtnElement);
+            // Error Message element
+            const errorMessageElement = document.createElement('div');
+            errorMessageElement.setAttribute('id', 'errorIndicator');
+            // errorMessageElement.innerHTML = ""
+            endGameMessageElement.append(errorMessageElement);
             createRow(1, endGameMessageElement);
-}
 
-});
+            addHighScoreBtnElement.addEventListener("click", function(){
+                let highscores = [];
+                if(localStorage.getItem('localHighscores')){
+                    highscores = localStorage.getItem('localHighscores');
+                    highscores = JSON.parse(highscores);
+                }   else{
+                    let highscores = [];
+                }
+                const userInitial = document.getElementById('initials').value;
+                // const userScore = calcFinalScore();
+                highscores[(highscores.length)] = {
+                    initial: userInitial,
+                    score: currentScore,
+                }
+                window.localStorage.setItem('localHighscores', JSON.stringify(highscores));
+                handleHighscore(highscores);
+            });
+            function handleHighscore(highscores) {
+            if(localStorage.getItem('localHighscores')){
+                // highscores = localStorage.getItem('localHighscores');
+                // highscores = JSON.parse(highscores);
+            }   else{
+                highscores = [];
+            }
+            document.body.innerHTML = "";
+            const highscoreContainerElement = document.createElement('div');
+            highscoreContainerElement.setAttribute('class','container');
+            // Title and elements for highscore page
+            const highscoreTitleElement = document.createElement('div');
+            highscoreTitleElement.setAttribute('class', 'display-2 text-center mb-3')
+            highscoreTitleElement.innerHTML = "Record of Highscores";
+            highscoreContainerElement.append(highscoreTitleElement);
+            for (let i=0; i < highscores.length; i++){
+                let highscoreDisplayElement = document.createElement('div');
+                highscoreDisplayElement.setAttribute('class','m-1 bg-secondary text-white p-1')
+                highscoreDisplayElement.innerText = (i+1)+". "+highscores[i].initial+" - "+highscores[i].score;
+                highscoreContainerElement.append(highscoreDisplayElement);
+            }
+            // Buttons to Restart Quiz or Clear Record of Highscores and appending the Highscore elements to make them visible
+            restartBtnElement = document.createElement('button');
+            restartBtnElement.setAttribute('class', 'btn btn-light btn-block m-1');
+            restartBtnElement.innerText = 'Restart The Kwiz';
+            highscoreContainerElement.append(restartBtnElement);
+            restartBtnElement.addEventListener('click', function(){
+                document.location.reload()
+            });
+            clearScoresBtnElement = document.createElement('button');
+            clearScoresBtnElement.setAttribute('class', 'btn btn-dark btn-block m-1');
+            clearScoresBtnElement.innerText = 'Clear Highscores';
+            highscoreContainerElement.append(clearScoresBtnElement);
+            clearScoresBtnElement.addEventListener('click', function(){
+                window.localStorage.removeItem('localHighscores');
+                handleHighscore();
+            });
+            document.body.append(highscoreContainerElement);
+            }
+        }
+        });
