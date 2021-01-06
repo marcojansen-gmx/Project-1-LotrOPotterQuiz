@@ -266,32 +266,33 @@ const startTimer = function () {
             } else {
                 highscores = [];
             }
-            document.body.innerHTML = "";
-            const highscoreContainerElement = document.createElement("div");
-            highscoreContainerElement.setAttribute("class", "container");
-            // Title and elements for highscore page
-            const highscoreTitleElement = document.createElement("div");
-            highscoreTitleElement.setAttribute("class", "display-2 text-center mb-3")
-            highscoreTitleElement.innerHTML = "Record of Highscores";
-            highscoreContainerElement.append(highscoreTitleElement);
+            // document.body.innerHTML = "";
+            // const highscoreContainerElement = document.createElement("div");
+            // highscoreContainerElement.setAttribute("class", "container");
+            // // Title and elements for highscore page
+            // const highscoreTitleElement = document.createElement("div");
+            // highscoreTitleElement.setAttribute("class", "display-2 text-center mb-3")
+            // highscoreTitleElement.innerHTML = "Record of Highscores";
+            // highscoreContainerElement.append(highscoreTitleElement);
             for (let i = 0; i < highscores.length; i++) {
-                let highscoreDisplayElement = document.createElement("div");
+                let highscoreDisplayElement = document.getElementById("#highscoreContainer");
                 highscoreDisplayElement.setAttribute("class", "m-1 bg-secondary text-white p-1")
                 highscoreDisplayElement.innerText = (i + 1) + ". " + highscores[i].initial + " - " + highscores[i].score;
                 highscoreContainerElement.append(highscoreDisplayElement);
             }
             // Buttons to Restart Quiz or Clear Record of Highscores and appending the Highscore elements to make them visible
-            restartBtnElement = document.createElement("button");
-            restartBtnElement.setAttribute("class", "btn btn-light btn-block m-1");
-            restartBtnElement.innerText = "Restart The Kwiz";
-            highscoreContainerElement.append(restartBtnElement);
+            restartBtnElement = document.getElementById("#tryAgain");
+            // restartBtnElement.setAttribute("class", "btn btn-light btn-block m-1");
+            // restartBtnElement.innerText = "Restart The Kwiz";
+            // highscoreContainerElement.append(restartBtnElement);
             restartBtnElement.addEventListener("click", function () {
-                document.location.reload()
+                window.location = "index.html";
+                init();
             });
-            clearScoresBtnElement = document.createElement("button");
-            clearScoresBtnElement.setAttribute("class", "btn btn-dark btn-block m-1");
-            clearScoresBtnElement.innerText = "Clear Highscores";
-            highscoreContainerElement.append(clearScoresBtnElement);
+            clearScoresBtnElement = document.getElementById("#clear");
+            // clearScoresBtnElement.setAttribute("class", "btn btn-dark btn-block m-1");
+            // clearScoresBtnElement.innerText = "Clear Highscores";
+            // highscoreContainerElement.append(clearScoresBtnElement);
             clearScoresBtnElement.addEventListener("click", function () {
                 window.localStorage.removeItem("localHighscores");
                 handleHighscore();
