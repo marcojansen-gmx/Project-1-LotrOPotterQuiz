@@ -13,27 +13,23 @@
         let isAnswerHP;
         let isAnswerLOTR;
 
-        function showLoader() {
-            loader.classList.remove("hide");
-        }
-
-        function hideLoader() {
-            loader.classList.add("hide");
-        }
+       
             // init Function MJ
             init()
             function init(){
                 $("#intro").show()
                 $(".timer").hide()
+                $("#cover-start").show()
+                $(".loader-container").hide()
                 $("#quizContainer").hide()
         };
 
             // on click of start button run API requests
             $("#startButton").on("click", function(event){
                 event.preventDefault();
-                $("#cover-start").hide();
                 $("#intro").hide()   
-                showLoader()
+                $(".loader-container").show()
+                $("#cover-start").hide()
                 $.ajax({
                 url: 'https://the-one-api.dev/v2/character',
                 method: "GET",
@@ -52,14 +48,14 @@
                 method: "GET"
                 // handle HP API result
                 }).then(function(response){ 
-                    hideLoader();
-                    let resultHarryAPI = (JSON.stringify(response));
+                    // let resultHarryAPI = (JSON.stringify(response));
                     HPCharacters = response;
                     // console.log(resultHarryAPI);  
                     // console.log("HarryArray:" + Array.isArray(HPCharacters));
                     // quiz timer start
                     if (timer) clearInterval(timer);
                     $(".timer").show()
+                    $(".loader-container").hide()
                     timer = startTimer();
                     // quiz start
                     $("#quizContainer").show()

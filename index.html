@@ -61,25 +61,44 @@
             </div>      
             </div>
             <!-- Loader -->
-            <div class="loader-container hide">
+            <div class="loader-container">
                 <div class="lds-ripple"><div></div><div></div></div>
             </div>
 
             <!-- Start LOTR container -->
-            <div class="timer"> 
-                <p>Timer is going to be here</p>
-            </div>
-            <section id="quizContainer" class="quiz-container">
-                <p id="title">LOTR or Potter Quiz</p>
-                <div id="question"></div><br>                
-            
-                <!-- Buttons placeholder for answers-->
-                <button id="buttonHP" class="pulse"><img src="Assets/pic/Harry_Potter_button.svg"></button>
-                <button id="buttonLOTR" class="pulse"><img src="Assets/pic/Lotr_button.svg"></button>
-                <div id="scoreIndicator">
-                    <p>&nbsp;</p>
+            <div class="quiz-container" id="quizContainer">
+                <div class="row">
+                    <div class="col">
+                        <h1>LOTR or Potter Quiz</h1>
+                    </div>
                 </div>
-            </section>
+                <div class="row">
+                    <div class="col">
+                        <div id="question"></div>
+                    </div>
+                </div>
+                <!-- Timer --> 
+                <div class="row">
+                    <div class="col">            
+                        <div class="timer">
+                            <p>Timer is going to be here</p>
+                        </div>
+                    </div>
+                </div> 
+                <!-- Buttons placeholder for answers-->
+                <div class="row">
+                    <div class="col">
+                       
+                        <button id="buttonHP" class="pulse"><img src="Assets/pic/Harry_Potter_button.svg"></button>
+                    </div>
+                    <div class="col">
+                        <button id="buttonLOTR" class="pulse"><img src="Assets/pic/Lotr_button.svg"></button>
+                        <div id="scoreIndicator">
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
              <!-- Footer -->
         <footer class="center cyan-text">
