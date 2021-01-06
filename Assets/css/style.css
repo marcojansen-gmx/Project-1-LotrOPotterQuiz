@@ -18,7 +18,7 @@ p {
 }
 
 h1 {
-    color: #b3e5fc;
+    color: #063b3b;
 }
 
 h4 {
@@ -40,39 +40,27 @@ a {
     border: #232324 solid 1px;
 }
 
-#intro p{
-    font-size: 16px;
-    color: rgb(26, 24, 49), 24, 49);
-    text-align: right;
-    margin-right: 10px;
-}
 
 #intro {
     margin-right: 10px;
-}
-
-/* Start Button Quiz */
-#startButton {
-    background-color: #232324;
-    width: 150px;
-    border-radius: 5px;
+    text-align: right;
 }
 
 .hide {
     display: none;
 }
 
-/* Start Button Quiz */
+/* Timer nside the Quz */
 .timer {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 50px;
     color: #083636;
-    border: blue solid;
     font-size: 20px;
 }
 
+/* Cntainer wrapp, in html */
 .quiz-container {
     background-image: url('../pic/LOTRorPOTTER_main.jpg');
     background-repeat: no-repeat;
@@ -90,26 +78,34 @@ a {
     border: #232324 solid 1px;
 }
 
+#question {
+    border-bottom: #083636;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+}
+
+/* Text declaration for questions */
+.question-text{
+    font-weight: bold;
+    font-style: oblique;
+    font-size: 20px;
+    color: #424242;
+}
+
+/* Button */
+.regular-btn {
+    width: 150px;
+    border-radius: 15px;
+}
 
 /* Style for the buttons Potter and LOTR */
-#buttonHP {
+.game-btn {
+    margin: 70px 50px 50px 50px ;
     background-color: #232324;
     height: 45px;
-    width: 150px;
-    border-radius: 5px;
-}
-
-#buttonLOTR {
-    background-color: #232324;
-    height: 45px;
-    width: 150px;
-    border-radius: 5px;
-
-}
-
-/* Submit Button for the name/higscore */
-#submit-btn {
-    background-color: #232324;
+    width: 170px;
     border-radius: 5px;
 }
 
@@ -117,8 +113,4 @@ a {
 #footer {
     padding-top: 5px;
     padding-bottom: 10px;
-}
-
-.yellow {
-    border: solid yellow;
 }

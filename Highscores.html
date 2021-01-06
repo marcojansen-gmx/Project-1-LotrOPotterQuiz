@@ -25,28 +25,45 @@
         </div>
       </nav>
    <!-- End Navbar -->
-
-   <!-- Start Quiz conatiner -->
-   <div class="row">
-     <div class="col">
-       <h1>
-        HighScores
-       </h1>
-        <!-- start Highscore section -->
-        <div class="row">
-          <div class="col" id="highScores">
-            <table style="width:100%" id="highscoreTable">
-              <tr>
-                <th>Name</th>
-                <th>score</th> 
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-              </tr>
-            </table>
-            <button id="reset">Go Back</button> <button id="clearScores">Clear Highscores</button>
-          </div>
+      <!-- Start Main container -->
+      <div class="quiz-container">
+        <div class="row back-ground-quiz">
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <h1>HighScores</h1>
+                    </div>
+                </div>
+                <!-- start Highscore section -->
+                <div class="row">
+                    <div class="col" id="highScores"> <!-- add hide in class-->
+                      <div class="row">
+                        <div class="col">
+                          <table style="width:100%" id="highscoreTable">
+                            <tr>
+                              <th>Name</th>
+                              <th>Score</th> 
+                              <th>Time</th>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                      <button class="btn regular-btn" id="rest">Go Back</button>
+                    </div>
+                    <div class="col">
+                        <button class="btn regular-btn" id="clearScores">Clear Highscores</button>
+                    </div>
+                </div>
+                <!-- end Highscore section -->
+            </div> 
         </div>
     </div>
 
