@@ -8,7 +8,7 @@ $('document').ready(function () {
     let choosenAPI;
     let randomArrayNo;
     let currentScore = 0;
-    let currentMultiplier =2;
+    let currentMultiplier =1;
     let isAnswerHP;
     let isAnswerLOTR;
     let quizCounter = 0;
@@ -121,37 +121,41 @@ $('document').ready(function () {
     $("#buttonLOTR").on("click", checkAnswer)
 
     // Calculate score
-    function scoreCalc(isAnswerEval) {
+    function scoreCalc(isAnswerEval){
+        // set initial variable values
+        currentScore;
+        currentMultiplier;
         // with score still empty set initial current score and multiplier
         if (isAnswerEval) {
-            if (currentScore == 0) {
-                currentMultiplier = 2;
-                currentScore = 1;
-                console.log("A:" + currentMultiplier);
-                console.log("B:" + currentScore);
+            if (currentScore==0) {
+                currentMultiplier=2;
+                currentScore += 1;
+                console.log("A:"+currentMultiplier);
+                console.log("B:"+currentScore);
             }
-            // with score already set add +1 to multiplier and mutliply with current score
+                // with score already set add +1 to multiplier and mutliply with current score
+                else {
+                currentMultiplier=(currentMultiplier+1);
+                currentScore=(currentScore*currentMultiplier);
+                console.log("C:"+currentMultiplier);
+                console.log("D:"+currentScore);
+            }
+    }
             else {
-                currentMultiplier = (currentMultiplier + 1);
-                console.log("C:" + currentMultiplier);
-                console.log("D:" + currentScore);
-            }
-        }
-        else {
             //added if statement for incorrect first answer under a evalualtion that is false
-            if (currentScore == 0) {
-                currentMultiplier = 2;
-                currentScore = 1;
-                console.log("E:" + currentMultiplier);
-                console.log("F:" + currentScore);
-            } else {
-                currentMultiplier = 2;
-                currentScore = (currentScore * currentMultiplier);
-                console.log("G:" + currentMultiplier);
-                console.log("H:" + currentScore);
-            }
+                if (currentScore==0) {
+                    currentMultiplier=2;
+                    currentScore = 0;
+                    console.log("E:"+currentMultiplier);
+                    console.log("F:"+currentScore);
+            }               else {
+                        currentMultiplier=2;
+                        // currentScore=(currentScore*currentMultiplier);
+                        console.log("G:"+currentMultiplier);
+                        console.log("H:"+currentScore);
+                }
         }
-    };
+};
 
     // Start Timer on Click Code
     const startTimer = function () {
