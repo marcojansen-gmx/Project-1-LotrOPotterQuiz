@@ -7,12 +7,13 @@ $('document').ready(function () {
     let LOTRCharacters;
     let choosenAPI;
     let randomArrayNo;
-    let currentScore;
+    let currentScore = 0;
     let currentMultiplier =2;
     let isAnswerHP;
     let isAnswerLOTR;
     let quizCounter = 0;
     const maxQuestion = 10;
+    let highscoreArray= [];
 
     // init Function MJ
     init()
@@ -140,7 +141,7 @@ $('document').ready(function () {
             //added if statement for incorrect first answer under a evalualtion that is false
             if (currentScore == undefined) {
                 currentMultiplier = 2;
-                currentScore = 0;
+                currentScore = 1;
                 console.log("E:" + currentMultiplier);
                 console.log("F:" + currentScore);
             } else {
@@ -179,7 +180,7 @@ $('document').ready(function () {
         return timer;
     };
 
-});
+
 
 // creating container element to add end of game elements
 let containerElement = document.getElementById("quizContainer");
@@ -205,7 +206,7 @@ function renderEndGame() {
     endGameMessageElement.innerText = "Game is Over!";
     // Let user know what their score is
     const userScoreMessageElement = document.createElement('div');
-    userScoreMessageElement.innerHTML = "Your final score is: ";
+    userScoreMessageElement.innerHTML = "Your final score is: "+currentScore;
     endGameMessageElement.append(userScoreMessageElement);
     // Request user input 
     const initialMessageElement = document.createElement('div');
@@ -220,3 +221,21 @@ function renderEndGame() {
     endGameMessageElement.append(addHighScoreBtnElement);
     createRow(1, endGameMessageElement);
 }
+
+function storeResult(currentScore,event){
+    event.preventDefault();
+    let initialsRecord = document.getElementById("initial-input").value;
+    console.log(initialsRecord);
+    highscoreArray.push({
+        "initialRecord": initialsRecord,
+        "score": currentScore
+    });
+    console.log(highscoreArray);
+    
+// put object value into localstorage
+window.localStorage.setItem('initialRecord', JSON.stringify(highscoreArray)); 
+};
+    $("#submit-btn").on('click', storeResult);
+
+
+});
