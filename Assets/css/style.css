@@ -36,6 +36,13 @@ a {
     margin-top: 10px;
 }
 
+#intro p{
+    font-size: 16px;
+    color: rgb(26, 24, 49), 24, 49);
+    text-align: right;
+    margin-right: 10px;
+}
+
 .img-border {
     border: #232324 solid 1px;
 }
@@ -57,6 +64,7 @@ a {
     align-items: center;
     height: 50px;
     color: #083636;
+    border: blue solid;
     font-size: 20px;
 }
 
@@ -114,3 +122,8 @@ a {
     padding-top: 5px;
     padding-bottom: 10px;
 }
+
+/* .yellow { */
+/*     border: solid yellow; */
+/* } */
+
