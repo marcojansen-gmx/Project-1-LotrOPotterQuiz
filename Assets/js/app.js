@@ -248,6 +248,7 @@ function createRow(rowTotal, content) {
                 if(localStorage.getItem('localHighscores')){
                     highscores = localStorage.getItem('localHighscores');
                     highscores = JSON.parse(highscores);
+                    window.location = "Highscores.html";
                 }   else{
                     let highscores = [];
                 }
@@ -260,7 +261,6 @@ function createRow(rowTotal, content) {
                 window.localStorage.setItem('localHighscores', JSON.stringify(highscores));
                 handleHighscore(highscores);
                 // target highscore.html
-                window.location = "Highscores.html";
             });
             
             function handleHighscore(highscores) {
