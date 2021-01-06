@@ -124,7 +124,7 @@ $('document').ready(function () {
     function scoreCalc(isAnswerEval) {
         // with score still empty set initial current score and multiplier
         if (isAnswerEval) {
-            if (currentScore == undefined) {
+            if (currentScore == 0) {
                 currentMultiplier = 2;
                 currentScore = 1;
                 console.log("A:" + currentMultiplier);
@@ -139,7 +139,7 @@ $('document').ready(function () {
         }
         else {
             //added if statement for incorrect first answer under a evalualtion that is false
-            if (currentScore == undefined) {
+            if (currentScore == 0) {
                 currentMultiplier = 2;
                 currentScore = 1;
                 console.log("E:" + currentMultiplier);
