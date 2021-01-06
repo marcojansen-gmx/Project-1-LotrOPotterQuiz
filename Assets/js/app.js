@@ -1,5 +1,6 @@
-$('document').ready(function () {
+    $('document').ready(function(){
 
+        // Create Element to be grabbed for Timer Display
     // Create Element to be grabbed for Timer Display
     const timerDisplay = document.querySelector(".timer");
     let timer;
@@ -15,22 +16,28 @@ $('document').ready(function () {
     const maxQuestion = 10;
     let highscoreArray= [];
 
-    // init Function MJ
-    init()
-    function init() {
-        $("#intro").show()
-        $(".timer").hide()
-        $("#quizContainer").hide()
-    };
+       
+            // init Function MJ
+            init()
+            function init(){
+                $("#intro").show()
+                $(".timer").hide()
+                $("#cover-start").show()
+                $(".loader-container").hide()
+                $("#quizContainer").hide()
+        };
 
-    // on click of start button run API requests
-    $("#startButton").on("click", function () {
-        $("#intro").hide()
-        $.ajax({
-            url: 'https://the-one-api.dev/v2/character',
-            method: "GET",
-            contentType: 'application/json',
-            headers: {
+            // on click of start button run API requests
+            $("#startButton").on("click", function(event){
+                event.preventDefault();
+                $("#intro").hide()   
+                $(".loader-container").show()
+                $("#cover-start").hide()
+                $.ajax({
+                url: 'https://the-one-api.dev/v2/character',
+                method: "GET",
+                contentType: 'application/json',
+                headers: {
                 'Authorization': 'Bearer 8dD_KqhUELsw37ZZ8_2t'
             }
             // handle LOTR API result
@@ -43,18 +50,22 @@ $('document').ready(function () {
                 url: 'https://hp-api.herokuapp.com/api/characters',
                 method: "GET"
                 // handle HP API result
-            }).then(function (response) {
-                // let resultHarryAPI = (JSON.stringify(response));
-                HPCharacters = response;
-                // console.log(resultHarryAPI);  
-                // console.log("HarryArray:" + Array.isArray(HPCharacters));
-                // quiz timer start
-                if (timer) clearInterval(timer);
-                $(".timer").show()
-                timer = startTimer();
-                // quiz start
-                $("#quizContainer").show()
-                startQuiz(LOTRCharacters, HPCharacters);
+
+                }).then(function(response){ 
+                    // let resultHarryAPI = (JSON.stringify(response));
+                    HPCharacters = response;
+                    // console.log(resultHarryAPI);  
+                    // console.log("HarryArray:" + Array.isArray(HPCharacters));
+                    // quiz timer start
+                    if (timer) clearInterval(timer);
+                    $(".timer").show()
+                    $(".loader-container").hide()
+                    timer = startTimer();
+                    // quiz start
+                    $("#quizContainer").show()
+                    startQuiz(LOTRCharacters,HPCharacters);              
+                }); 
+
             });
 
         });
