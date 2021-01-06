@@ -138,6 +138,7 @@
         currentMultiplier;
         // with score still empty set initial current score and multiplier
         if (isAnswerEval) {
+
             if (currentScore==0) {
                 currentMultiplier=2;
                 currentScore += 1;
@@ -214,6 +215,7 @@ function createRow(rowTotal, content) {
 }
 
         function renderEndGame() {
+            window.location = "Highscores.html";
             containerElement.innerHTML = "";
             // Game is Over Notification
             const endGameMessageElement = document.createElement('div');
@@ -246,6 +248,7 @@ function createRow(rowTotal, content) {
                 if(localStorage.getItem('localHighscores')){
                     highscores = localStorage.getItem('localHighscores');
                     highscores = JSON.parse(highscores);
+                    window.location = "Highscores.html";
                 }   else{
                     let highscores = [];
                 }
@@ -257,7 +260,9 @@ function createRow(rowTotal, content) {
                 }
                 window.localStorage.setItem('localHighscores', JSON.stringify(highscores));
                 handleHighscore(highscores);
+                // target highscore.html
             });
+            
             function handleHighscore(highscores) {
             if(localStorage.getItem('localHighscores')){
                 // highscores = localStorage.getItem('localHighscores');
@@ -265,6 +270,7 @@ function createRow(rowTotal, content) {
             }   else{
                 highscores = [];
             }
+
             document.body.innerHTML = "";
             const highscoreContainerElement = document.createElement('div');
             highscoreContainerElement.setAttribute('class','container');
@@ -274,23 +280,28 @@ function createRow(rowTotal, content) {
             highscoreTitleElement.innerHTML = "Record of Highscores";
             highscoreContainerElement.append(highscoreTitleElement);
             for (let i=0; i < highscores.length; i++){
+                let highscoreEL = document.getElementById("#highscoreContainer")
                 let highscoreDisplayElement = document.createElement('div');
                 highscoreDisplayElement.setAttribute('class','m-1 bg-secondary text-white p-1')
                 highscoreDisplayElement.innerText = (i+1)+". "+highscores[i].initial+" - "+highscores[i].score;
                 highscoreContainerElement.append(highscoreDisplayElement);
             }
-            // Buttons to Restart Quiz or Clear Record of Highscores and appending the Highscore elements to make them visible
+
+            // // Buttons to Restart Quiz or Clear Record of Highscores and appending the Highscore elements to make them visible
             restartBtnElement = document.createElement('button');
             restartBtnElement.setAttribute('class', 'btn btn-light btn-block m-1');
             restartBtnElement.innerText = 'Restart The Kwiz';
             highscoreContainerElement.append(restartBtnElement);
+
             restartBtnElement.addEventListener('click', function(){
                 document.location.reload()
             });
+            
             clearScoresBtnElement = document.createElement('button');
             clearScoresBtnElement.setAttribute('class', 'btn btn-dark btn-block m-1');
             clearScoresBtnElement.innerText = 'Clear Highscores';
             highscoreContainerElement.append(clearScoresBtnElement);
+
             clearScoresBtnElement.addEventListener('click', function(){
                 window.localStorage.removeItem('localHighscores');
                 handleHighscore();
