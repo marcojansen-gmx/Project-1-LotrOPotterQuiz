@@ -1,6 +1,5 @@
-    $('document').ready(function(){
+$('document').ready(function () {
 
-        // Create Element to be grabbed for Timer Display
     // Create Element to be grabbed for Timer Display
     const timerDisplay = document.querySelector(".timer");
     let timer;
@@ -9,35 +8,29 @@
     let choosenAPI;
     let randomArrayNo;
     let currentScore = 0;
-    let currentMultiplier =1;
+    let currentMultiplier =2;
     let isAnswerHP;
     let isAnswerLOTR;
     let quizCounter = 0;
     const maxQuestion = 10;
     let highscoreArray= [];
 
-       
-            // init Function MJ
-            init()
-            function init(){
-                $("#intro").show()
-                $(".timer").hide()
-                $("#cover-start").show()
-                $(".loader-container").hide()
-                $("#quizContainer").hide()
-        };
+    // init Function MJ
+    init()
+    function init() {
+        $("#intro").show()
+        $(".timer").hide()
+        $("#quizContainer").hide()
+    };
 
-            // on click of start button run API requests
-            $("#startButton").on("click", function(event){
-                event.preventDefault();
-                $("#intro").hide()   
-                $(".loader-container").show()
-                $("#cover-start").hide()
-                $.ajax({
-                url: 'https://the-one-api.dev/v2/character',
-                method: "GET",
-                contentType: 'application/json',
-                headers: {
+    // on click of start button run API requests
+    $("#startButton").on("click", function () {
+        $("#intro").hide()
+        $.ajax({
+            url: 'https://the-one-api.dev/v2/character',
+            method: "GET",
+            contentType: 'application/json',
+            headers: {
                 'Authorization': 'Bearer 8dD_KqhUELsw37ZZ8_2t'
             }
             // handle LOTR API result
@@ -50,22 +43,18 @@
                 url: 'https://hp-api.herokuapp.com/api/characters',
                 method: "GET"
                 // handle HP API result
-
-                }).then(function(response){ 
-                    // let resultHarryAPI = (JSON.stringify(response));
-                    HPCharacters = response;
-                    // console.log(resultHarryAPI);  
-                    // console.log("HarryArray:" + Array.isArray(HPCharacters));
-                    // quiz timer start
-                    if (timer) clearInterval(timer);
-                    $(".timer").show()
-                    $(".loader-container").hide()
-                    timer = startTimer();
-                    // quiz start
-                    $("#quizContainer").show()
-                    startQuiz(LOTRCharacters,HPCharacters);              
-                }); 
-
+            }).then(function (response) {
+                // let resultHarryAPI = (JSON.stringify(response));
+                HPCharacters = response;
+                // console.log(resultHarryAPI);  
+                // console.log("HarryArray:" + Array.isArray(HPCharacters));
+                // quiz timer start
+                if (timer) clearInterval(timer);
+                $(".timer").show()
+                timer = startTimer();
+                // quiz start
+                $("#quizContainer").show()
+                startQuiz(LOTRCharacters, HPCharacters);
             });
 
         });
@@ -132,42 +121,35 @@
     $("#buttonLOTR").on("click", checkAnswer)
 
     // Calculate score
-    function scoreCalc(isAnswerEval){
-        // set initial variable values
-        currentScore;
-        currentMultiplier;
+    function scoreCalc(isAnswerEval) {
         // with score still empty set initial current score and multiplier
         if (isAnswerEval) {
-
-            if (currentScore==0) {
-                currentMultiplier=2;
-                currentScore += 1;
-                console.log("A:"+currentMultiplier);
-                console.log("B:"+currentScore);
+            if (currentScore == undefined) {
+                currentScore = 1;
+                console.log("A:" + currentMultiplier);
+                console.log("B:" + currentScore);
             }
-                // with score already set add +1 to multiplier and mutliply with current score
-                else {
-                currentMultiplier=(currentMultiplier+1);
-                currentScore=(currentScore*currentMultiplier);
-                console.log("C:"+currentMultiplier);
-                console.log("D:"+currentScore);
-            }
-    }
+            // with score already set add +1 to multiplier and mutliply with current score
             else {
-            //added if statement for incorrect first answer under a evalualtion that is false
-                if (currentScore==0) {
-                    currentMultiplier=2;
-                    currentScore = 0;
-                    console.log("E:"+currentMultiplier);
-                    console.log("F:"+currentScore);
-            }               else {
-                        currentMultiplier=2;
-                        // currentScore=(currentScore*currentMultiplier);
-                        console.log("G:"+currentMultiplier);
-                        console.log("H:"+currentScore);
-                }
+                currentMultiplier = (currentMultiplier + 1);
+                currentScore = (currentScore * currentMultiplier);
+                console.log("C:" + currentMultiplier);
+                console.log("D:" + currentScore);
+            }
         }
-};
+        else {
+            //added if statement for incorrect first answer under a evalualtion that is false
+            if (currentScore == undefined) {
+                currentMultiplier = 2;
+                console.log("E:" + currentMultiplier);
+                console.log("F:" + currentScore);
+            } else {
+                currentMultiplier = 2;
+                console.log("G:" + currentMultiplier);
+                console.log("H:" + currentScore);
+            }
+        }
+    };
 
     // Start Timer on Click Code
     const startTimer = function () {
@@ -215,7 +197,6 @@ function createRow(rowTotal, content) {
 }
 
         function renderEndGame() {
-            window.location = "Highscores.html";
             containerElement.innerHTML = "";
             // Game is Over Notification
             const endGameMessageElement = document.createElement('div');
@@ -251,6 +232,7 @@ function createRow(rowTotal, content) {
                     window.location = "Highscores.html";
                 }   else{
                     let highscores = [];
+                    window.location = "Highscores.html";
                 }
                 const userInitial = document.getElementById('initials').value;
                 // const userScore = calcFinalScore();
@@ -285,7 +267,7 @@ function createRow(rowTotal, content) {
                 highscoreDisplayElement.setAttribute('class','m-1 bg-secondary text-white p-1')
                 highscoreDisplayElement.innerText = (i+1)+". "+highscores[i].initial+" - "+highscores[i].score;
                 highscoreContainerElement.append(highscoreDisplayElement);
-            }
+            };
 
             // // Buttons to Restart Quiz or Clear Record of Highscores and appending the Highscore elements to make them visible
             restartBtnElement = document.createElement('button');
