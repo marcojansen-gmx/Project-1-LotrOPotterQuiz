@@ -244,8 +244,10 @@ const startTimer = function () {
             if (localStorage.getItem("localHighscores")) {
                 highscores = localStorage.getItem("localHighscores");
                 highscores = JSON.parse(highscores);
+                window.location = "Highscores.html";
             } else {
                 let highscores = [];
+                window.location = "Highscores.html";
             }
             const userInitial = document.getElementById("initials").value;
             // const userScore = calcFinalScore();
