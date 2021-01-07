@@ -1,86 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link rel="stylesheet" href="Assets/css/style.css">
-  <!-- Title of project-->
-  <title>Potter or LOTR Quiz</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="Assets/css/style.css">
+    <!-- Title of project-->  
+    <title>Potter or LOTR Quiz</title>
 </head>
-
 <body>
-  <!-- Start Main container -->
-  <div class="container" id="positionWrapper">
+     <!-- Start Main container -->
+  <div class="container" id="positionWrapper" >
     <!-- start Navbar -->
     <nav>
-      <div class="nav-wrapper cyan darken-4">
-        <a href="index.html"><img src="Assets/pic/Potter_Lotr_logo.svg" class="logo"
-            alt="Harry Potter vs The Lord of the Ring"></a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="HP.html">Who is Harry Potter?</a></li>
-          <li><a href="LOTR.html">What is LOTR?</a></li>
-          <li class="active"><a href="Highscores.html">Highscores</a></li>
-        </ul>
-      </div>
-    </nav>
-    <!-- End Navbar -->
-
-    <!-- Start Main container -->
-    <div class="quiz-container">
-      <div class="row back-ground-quiz">
-        <div class="col">
-          <div class="row">
-            <div class="col">
-              <h1>HighScores</h1>
-            </div>
-          </div>
-
-          <!-- start Highscore section -->
-          <div class="row">
-            <div class="col" id="highscoreContainer">
-              <!-- add hide in class-->
-              <div class="row">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <button class="btn regular-btn" id="tryAgain">Go Back</button>
-            </div>
-            <div class="col">
-              <button class="btn regular-btn" id="clear">Clear Highscores</button>
-            </div>
-          </div>
-          <!-- end Highscore section -->
+        <div class="nav-wrapper cyan darken-4">
+          <a href="index.html"><img src="Assets/pic/Potter_Lotr_logo.svg" class="logo" alt="Harry Potter vs The Lord of the Ring"></a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="HP.html">Who is Harry Potter?</a></li>
+            <li><a href="LOTR.html">What is LOTR?</a></li>
+            <li class="active"><a href="Highscores.html">Highscores</a></li>
+          </ul>
         </div>
+      </nav>
+   <!-- End Navbar -->
+
+      <!-- Start Main container -->
+      <div class="quiz-container">
+        <div class="row back-ground-quiz">
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <h1>HighScores</h1>
+                    </div>
+                </div>
+              
+              <!-- start Highscore section -->
+                <div class="row">
+                    <div class="col" id="highscoreContainer"> <!-- add hide in class-->
+                      <div class="row">
+                      </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                      <button class="btn regular-btn" id="tryAgain">Go Back</button>
+                    </div>
+                    <div class="col">
+                        <button class="btn regular-btn" id="clear">Clear Highscores</button>
+                    </div>
+                </div>
+                <!-- end Highscore section -->
+            </div> 
+        </div>
+    </div>
+   
+    <!-- <div id="highscoreContainer" class="display-2 text-center mb-3">Record of Highscores</div>
+    <div class="m-1 bg-secondary text-white p-1">1. dff - 0</div>
+    <button id="tryAgain" class="btn btn-light btn-block m-1">Do you dare to try again?</button>
+    <button id="clear" class="btn btn-dark btn-block m-1">Clear Highscores</button> -->
+
+    <!-- Footer -->
+   <footer class="center cyan-text">
+    <div class="footer-copyright cyan darken-4">
+      <div class="container" id="footer">
+      <span> © 2021 Copyright</span>
+      <br>
+      <span> POTTER or LOTR Quiz 
+       <link rel="stylesheet" type="text/css" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+       Made with <i class="icon ion-heart"></i> By
+       <a href="https://github.com/marcojansen-gmx/LOTR-or-Potter-Quiz" target="blank"></a>
+         Marco, Adrian, Abbie & Nadja</a>
+         </span>
       </div>
     </div>
-    <!-- Footer -->
-    <footer class="center cyan-text">
-      <div class="footer-copyright cyan darken-4"> -->
-        <div class="container" id="footer">
-          <span> © 2021 Copyright</span>
-          <br>
-          <span> POTTER or LOTR Quiz
-            <link rel="stylesheet" type="text/css"
-              href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
-            Made with <i class="icon ion-heart"></i> By
-            <a href="https://github.com/marcojansen-gmx/LOTR-or-Potter-Quiz" target="blank"></a>
-            Marco, Adrian, Abbie & Nadja</a>
-          </span>
-        </div>
-      </div>
-    </footer>
+   </footer>
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- <script src="Assets/js/app.js"></script> -->
     <script src="Assets/js/highscores.js"></script>
 
 </body>
-
 </html>
