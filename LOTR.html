@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Compiled and minified CSS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="Assets/css/style.css">
     <!-- Title of project-->  
@@ -16,16 +17,23 @@
   <div class="container" id="positionWrapper" >
     <!-- start Navbar -->
     <nav>
-        <div class="nav-wrapper cyan darken-4">
-          <a href="index.html"><img src="Assets/pic/Potter_Lotr_logo.svg" class="logo" alt="Harry Potter vs The Lord of the Ring"></a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="HP.html">Who is Harry Potter?</a></li>
-            <li class="active"><a href="LOTR.html">What is LOTR?</a></li>
-            <li><a href="Highscores.html">Highscores</a></li>
+      <div class="nav-wrapper cyan darken-4">
+          <a href="index.html" class="brand-logo"><img src="Assets/pic/Potter_Lotr_logo.svg" class="logo" alt="Harry Potter vs The Lord of the Ring"></a>
+          <a href="index.html" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+              <li class="active"><a href="HP.html">Who is Harry Potter?</a></li>
+              <li><a href="LOTR.html">What is LOTR?</a></li>
+              <li><a href="Highscores.html">Highscores</a></li>
           </ul>
-        </div>
-      </nav>
-   <!-- End Navbar -->
+      </div>
+  </nav>
+
+  <ul class="sidenav" id="mobile-demo">
+      <li><a href="HP.html">Who is Harry Potter?</a></li>
+      <li><a href="LOTR.html">What is LOTR?</a></li>
+      <li><a href="Highscores.html">Highscores</a></li>
+  </ul>
+ <!-- End Navbar -->
 
    <!-- Start Quiz conatiner -->
    <div class="row">

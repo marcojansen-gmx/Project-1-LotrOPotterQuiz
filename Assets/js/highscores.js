@@ -10,15 +10,19 @@ clear.addEventListener("click", function () {
 // Retreives local stroage 
 var localHighscores = localStorage.getItem("localHighscores");
 localHighscores = JSON.parse(localHighscores);
-
 if (localHighscores !== null) {
-
     for (var i = 0; i < localHighscores.length; i++) {
-
-        var createLi = document.createElement("li");
-        createLi.textContent = localHighscores[i].initial + "       |       " + localHighscores[i].score;
-        highScore.appendChild(createLi);
-
+        var row = document.createElement("div");
+        var initialCol = document.createElement("div");
+        var scoreCol = document.createElement("div");
+        row.classList.add("row");
+        initialCol.classList.add("col");
+        scoreCol.classList.add("col");
+        initialCol.textContent = localHighscores[i].initial
+        scoreCol.textContent = localHighscores[i].score;
+        row.appendChild(initialCol)
+        row.appendChild(scoreCol)
+        highScore.appendChild(row);
     }
 }
 // Event listener to move to index page
