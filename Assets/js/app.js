@@ -96,7 +96,7 @@ $('document').ready(function () {
             // console.log(LOTRCharacters);
             randomArrayNo = Math.floor(Math.random() * LOTRCharacters.length);
             console.log(randomArrayNo, LOTRCharacters[randomArrayNo].name);
-            $("#question").text(`From which book is this char? Name: ${LOTRCharacters[randomArrayNo].name}`);
+            $("#question").text(`From which book is this character? Name: ${LOTRCharacters[randomArrayNo].name}`);
             $("#quizContainer").attr("data-answer", "buttonLOTR");
         }
         else {

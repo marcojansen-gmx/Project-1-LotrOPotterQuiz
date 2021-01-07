@@ -6,6 +6,8 @@ LOTR (pronounced /'lɒtər/) or Potter is a quiz based on the series **Lord of t
 ## Table of Contents
 
 * [Technology Usage](#usage)
+* [Acceptance Criteria](#criteria)
+* [User Story](#story)
 * [Instructions](#Instructions)
 * [Credits](#credits)
 * [License](#license)
@@ -47,6 +49,27 @@ The application makes use of the following technologies:
 
 6.   ### GitHub
      GitHub is a code hosting platform for version control and collaboration. It lets developers work together on projects from anywhere and allows you to create repositories and branches perform commits, Pull Requests. _[ref](https://guides.github.com/activities/hello-world/)_
+
+
+## Criteria
+GIVEN I am feeling like taking a quiz challenge
+WHEN when I open the page
+THEN a start button is displayed to start a quiz
+WHEN push the start button
+THEN a quiz is starting which contains harry potter and lord of the rings characters
+WHEN I push the lord of the rings or harry potter button
+THEN my answer needs to be correct to increase my score
+WHEN I get through my 10 questions or the timer is exceeded
+THEN I get my final result
+WHEN I enter my initials and submit
+THEN my score gets saved for me even if I refresh the page
+WHEN I have submited my score
+THEN my score gets displayed on a highscore page
+
+## Story
+AS A Lord of the rings or Harry Potter fan
+I WANT to test my knowledge on my favorite books
+SO THAT I can try to reach the highest score
 
 ## Instructions
 
