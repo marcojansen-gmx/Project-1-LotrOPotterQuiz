@@ -216,7 +216,7 @@ const startTimer = function () {
         containerElement.innerHTML = "";
         // Game is Over Notification
         const endGameMessageElement = document.createElement("h4");
-        endGameMessageElement.setAttribute("class", "myClassRed");
+        endGameMessageElement.setAttribute("style", "background-color:rgba(255, 255, 255, 0.5); padding:20px");
         endGameMessageElement.innerText = "Game is Over!";
         // Let user know what their score is
         const userScoreMessageElement = document.createElement("h4");
