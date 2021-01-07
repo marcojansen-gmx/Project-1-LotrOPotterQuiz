@@ -101,26 +101,31 @@ function startQuiz(LOTRCharacters, HPCharacters) {
 function checkAnswer(event) {
     event.preventDefault();
     quizCounter++;
-    if(quizCounter > maxQuestion){
+    if (quizCounter > maxQuestion) {
         return renderEndGame();
     }
     const buttonType = event.currentTarget.id;
-
     let answerAttribute = $("#quizContainer").attr("data-answer");
     console.log(answerAttribute);
     isAnswerEval = (buttonType === answerAttribute);
     if (isAnswerEval) {
         console.log("correct");
+        $("#scoreIndicator").html("Your answer is correct");
+        setTimeout(function () {
+            $('#scoreIndicator').empty();
+        }, 1000);
         scoreCalc(isAnswerEval);
         startQuiz(LOTRCharacters, HPCharacters)
     }
     else {
         console.log("incorrect");
+        $("#scoreIndicator").html("Your answer is incorrect");
+        setTimeout(function () {
+            $('#scoreIndicator').empty();
+        }, 1000);
         scoreCalc(isAnswerEval);
         startQuiz(LOTRCharacters, HPCharacters)
     }
-
-
 }
 
 // HP button evaluation on click
