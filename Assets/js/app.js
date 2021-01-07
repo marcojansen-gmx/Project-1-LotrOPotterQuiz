@@ -239,15 +239,16 @@ const startTimer = function () {
         // errorMessageElement.innerHTML = ""
         endGameMessageElement.append(errorMessageElement);
         createRow(1, endGameMessageElement);
+
         addHighScoreBtnElement.addEventListener("click", function () {
+            window.location = "Highscores.html";
             let highscores = [];
             if (localStorage.getItem("localHighscores")) {
                 highscores = localStorage.getItem("localHighscores");
                 highscores = JSON.parse(highscores);
-                window.location = "Highscores.html";
             } else {
                 let highscores = [];
-                window.location = "Highscores.html";
+                // window.location = "Highscores.html";
             }
             const userInitial = document.getElementById("initials").value;
             // const userScore = calcFinalScore();
@@ -261,8 +262,8 @@ const startTimer = function () {
         
         function handleHighscore(highscores) {
             if (localStorage.getItem("localHighscores")) {
-                // highscores = localStorage.getItem("localHighscores");
-                // highscores = JSON.parse(highscores);
+                highscores = localStorage.getItem("localHighscores");
+                highscores = JSON.parse(highscores);
             } else {
                 highscores = [];
             }
@@ -287,7 +288,7 @@ const startTimer = function () {
             // highscoreContainerElement.append(restartBtnElement);
             restartBtnElement.addEventListener("click", function () {
                 window.location = "index.html";
-                init();
+                // init();
             });
             clearScoresBtnElement = document.getElementById("#clear");
             // clearScoresBtnElement.setAttribute("class", "btn btn-dark btn-block m-1");
