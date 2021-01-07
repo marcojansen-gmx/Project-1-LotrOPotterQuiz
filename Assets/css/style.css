@@ -47,12 +47,6 @@ a {
     border: #232324 solid 1px;
 }
 
-
-#intro {
-    margin-right: 10px;
-    text-align: right;
-}
-
 .hide {
     display: none;
 }
@@ -64,7 +58,6 @@ a {
     align-items: center;
     height: 50px;
     color: #083636;
-    border: blue solid;
     font-size: 20px;
 }
 
@@ -122,8 +115,3 @@ a {
     padding-top: 5px;
     padding-bottom: 10px;
 }
-
-/* .yellow { */
-/*     border: solid yellow; */
-/* } */
-

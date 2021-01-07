@@ -215,11 +215,11 @@ const startTimer = function () {
     function renderEndGame() {
         containerElement.innerHTML = "";
         // Game is Over Notification
-        const endGameMessageElement = document.createElement("h4");
+        const endGameMessageElement = document.createElement("h1");
         endGameMessageElement.setAttribute("style", "background-color:rgba(255, 255, 255, 0.5); padding:20px");
         endGameMessageElement.innerText = "Game is Over!";
         // Let user know what their score is
-        const userScoreMessageElement = document.createElement("h4");
+        const userScoreMessageElement = document.createElement("h1");
         userScoreMessageElement.innerHTML = "Your final score is: " + currentScore;
         endGameMessageElement.append(userScoreMessageElement);
         // Request user input
