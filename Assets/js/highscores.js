@@ -16,7 +16,7 @@ if (localHighscores !== null) {
     for (var i = 0; i < localHighscores.length; i++) {
 
         var createLi = document.createElement("li");
-\\        createLi.textContent = localHighscores[i].initial + "       |       " + localHighscores[i].score;
+        createLi.textContent = localHighscores[i].initial + "       |       " + localHighscores[i].score;
         highScore.appendChild(createLi);
 
     }
