@@ -215,7 +215,7 @@ const startTimer = function () {
     function renderEndGame() {
         containerElement.innerHTML = "";
         // Game is Over Notification
-        const endGameMessageElement = document.createElement("div");
+        const endGameMessageElement = document.createElement("h4");
         endGameMessageElement.setAttribute("class", "myClassRed");
         endGameMessageElement.innerText = "Game is Over!";
         // Let user know what their score is
@@ -225,7 +225,7 @@ const startTimer = function () {
         // Request user input
         const initialMessageElement = document.createElement("div");
         initialMessageElement.setAttribute("class", "myClassBlue");
-        initialMessageElement.innerHTML = "Enter your name here: <input type='text' id='initials'></input>";
+        initialMessageElement.innerHTML = "Enter your name here: <input type='text' id='initials' style='background-color:rgba(255, 255, 255, 0.5);' ></input>";
         endGameMessageElement.append(initialMessageElement);
         // Submit score button that will also be used to creat event Listener to generate highscores record
         const addHighScoreBtnElement = document.createElement("button");
