@@ -95,6 +95,36 @@ You will also have the option to try again or to clear the Record of Scores.
 
 There are also 2 other pages containing information on the subjects of the 2 APIs we are using ie. Harry Potter and Lord of the Rings.
 
+## Some Screenshots Mobile
+
+1. ### Index Page 
+  * ![Index Page](https://github.com/marcojansen-gmx/LOTR-or-Potter-Quiz/blob/main/Assets/pic/Readme%20pics/MOBI%20INDEX.png?raw=true)
+2. ### Quiz Page 
+  * ![Quiz Page](https://github.com/marcojansen-gmx/LOTR-or-Potter-Quiz/blob/main/Assets/pic/Readme%20pics/MOBI%20QUIZ.png?raw=true)
+3. ### Submit Page  
+  * ![Submit Page](https://github.com/marcojansen-gmx/LOTR-or-Potter-Quiz/blob/main/Assets/pic/Readme%20pics/MOBI%20SUBMIT.png?raw=true)
+4. ### High Score Page 
+  * ![High Score Page](https://github.com/marcojansen-gmx/LOTR-or-Potter-Quiz/blob/main/Assets/pic/Readme%20pics/MOBI%20HIGH%20SCORES.png?raw=true)
+5. ### Harry Potter Page 
+  * ![Harry Potter Page](https://github.com/marcojansen-gmx/LOTR-or-Potter-Quiz/blob/main/Assets/pic/Readme%20pics/MOBI%20HARRY%20POTTER.png?raw=true)
+6. ### Lord Of The Rings Page 
+  * ![Lord Of The Rings Page](https://github.com/marcojansen-gmx/LOTR-or-Potter-Quiz/blob/main/Assets/pic/Readme%20pics/MOBI%20LOTR.png?raw=true)
+
+## Some Screenshots Desktop
+
+1. ### Index Page 
+  * ![Index Page](https://github.com/marcojansen-gmx/LOTR-or-Potter-Quiz/blob/main/Assets/pic/Readme%20pics/DT%20INDEX.png?raw=true)
+2. ### Quiz Page 
+  * ![Quiz Page](https://github.com/marcojansen-gmx/LOTR-or-Potter-Quiz/blob/main/Assets/pic/Readme%20pics/DT%20QUIZ.png?raw=true)
+3. ### Submit Page  
+  * ![Submit Page](https://github.com/marcojansen-gmx/LOTR-or-Potter-Quiz/blob/main/Assets/pic/Readme%20pics/DT%20SUBMIT.png?raw=true)
+4. ### High Score Page 
+  * ![High Score Page](https://github.com/marcojansen-gmx/LOTR-or-Potter-Quiz/blob/main/Assets/pic/Readme%20pics/DT%20HIGH%20SCORES.png?raw=true)
+5. ### Harry Potter Page 
+  * ![Harry Potter Page](https://github.com/marcojansen-gmx/LOTR-or-Potter-Quiz/blob/main/Assets/pic/Readme%20pics/DT%20HARRY%20POTTER.png?raw=true)
+6. ### Lord Of The Rings Page 
+  * ![Lord Of The Rings Page](https://github.com/marcojansen-gmx/LOTR-or-Potter-Quiz/blob/main/Assets/pic/Readme%20pics/DT%20LOTR.png?raw=true)
+
 ## Credits
 :bellhop_bell: 
 Developed by WANDaRING
